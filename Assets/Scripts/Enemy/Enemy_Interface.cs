@@ -6,10 +6,10 @@ public enum EnemyType{
     Basic
 }
 public struct EnemyInfo{
-    Vector2 pos;
-    Vector2 vel;
-    int hp;
-    EnemyType type;
+    public Vector2 pos;
+    public Vector2 vel;
+    public int hp;
+    public EnemyType type;
 }
 public interface IEnemy{//敌人基类继承自此接口
     public void TakeDamage(int damage);//用于对敌人造成伤害
