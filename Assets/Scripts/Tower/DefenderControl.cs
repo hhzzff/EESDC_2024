@@ -35,6 +35,9 @@ public class DefenderControl : MonoBehaviour
             GlobalLightControl.GetInstance().transform.position.y - transform.position.y,
             GlobalLightControl.GetInstance().transform.position.x - transform.position.x
         ) * Mathf.Rad2Deg;
+        lightAngle -= transform.eulerAngles.z;
+        while(lightAngle <= -180) lightAngle += 360;
+        while(lightAngle > 180) lightAngle -= 360;
         Debug.Log(lightAngle);
         float minAngle = -67.5f;
         int id = 1;
