@@ -10,6 +10,9 @@ public class DefenderControl : MonoBehaviour
     public GameObject battery;
     public Material SignLightEnableMat, SignLightDisableMat;
     private bool[] SignLightEnabled = new bool[9]{false, false, false, false, false, false, false, false, false};
+    Renderer CurrentRenderer = new Renderer();
+    MaterialPropertyBlock CurrentPropertyBlock = new MaterialPropertyBlock();
+    Color litColor = new Color();
     // Start is called before the first frame update
     void Start()
     {
@@ -64,9 +67,33 @@ public class DefenderControl : MonoBehaviour
                 ChangeSignLightColor(i, false);
     }
     void ChangeSignLightColor(int childId, bool enabled){
-        if(enabled)
-            transform.Find("Base").Find("Base-VFX" + childId.ToString()).GetComponent<SpriteRenderer>().material = SignLightEnableMat;
-        else
-            transform.Find("Base").Find("Base-VFX" + childId.ToString()).GetComponent<SpriteRenderer>().material = SignLightDisableMat;
+        if(enabled){
+            CurrentRenderer = transform.Find("Base").Find("Base-VFX" + childId.ToString()).GetComponent<SpriteRenderer>();
+                if (CurrentRenderer)
+                {
+                    Debug.Log("change");
+                    CurrentRenderer.GetPropertyBlock(CurrentPropertyBlock);
+                    litColor = new Color(
+                        ParaDefine.GetInstance().signEnableColor.color.r * Mathf.Pow(2, ParaDefine.GetInstance().signEnableColor.idensity),
+                        ParaDefine.GetInstance().signEnableColor.color.g * Mathf.Pow(2, ParaDefine.GetInstance().signEnableColor.idensity),
+                        ParaDefine.GetInstance().signEnableColor.color.b * Mathf.Pow(2, ParaDefine.GetInstance().signEnableColor.idensity),
+                        0);
+                    CurrentPropertyBlock.SetColor("_GlowColor", litColor);
+                    CurrentRenderer.SetPropertyBlock(CurrentPropertyBlock);
+                }
+        }else{
+            CurrentRenderer = transform.Find("Base").Find("Base-VFX" + childId.ToString()).GetComponent<SpriteRenderer>();
+                if (CurrentRenderer)
+                {
+                    CurrentRenderer.GetPropertyBlock(CurrentPropertyBlock);
+                    litColor = new Color(
+                        ParaDefine.GetInstance().signDisableColor.color.r * Mathf.Pow(2, ParaDefine.GetInstance().signDisableColor.idensity),
+                        ParaDefine.GetInstance().signDisableColor.color.g * Mathf.Pow(2, ParaDefine.GetInstance().signDisableColor.idensity),
+                        ParaDefine.GetInstance().signDisableColor.color.b * Mathf.Pow(2, ParaDefine.GetInstance().signDisableColor.idensity),
+                        0);
+                    CurrentPropertyBlock.SetColor("_GlowColor", litColor);
+                    CurrentRenderer.SetPropertyBlock(CurrentPropertyBlock);
+                }
+        }
     }
 }
