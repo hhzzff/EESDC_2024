@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7832425807007205976}
   - component: {fileID: 2336278924303278152}
+  - component: {fileID: 6478281317821908744}
   m_Layer: 0
   m_Name: Base-VFX2
   m_TagString: Untagged
@@ -136,7 +137,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
+  - {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,6 +169,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6478281317821908744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105212351289134646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdb71d455eb2642a754304dff2e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3860390190811224027
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c26623304c14d44a3c3f6874109581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 135
+  rotateSpeed: 156.6
   currentAngle: 0
   battery: {fileID: 0}
   SignLightEnableMat: {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
@@ -313,6 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5287900984832210351}
   - component: {fileID: 8788802712936043759}
+  - component: {fileID: 8155161053875188793}
   m_Layer: 0
   m_Name: Base-VFX6
   m_TagString: Untagged
@@ -355,7 +369,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
+  - {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -387,6 +401,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8155161053875188793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293132390711574672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdb71d455eb2642a754304dff2e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4422108636578359885
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8988707277364636162}
   - component: {fileID: 5745022162443731535}
+  - component: {fileID: 2248775568176316127}
   m_Layer: 0
   m_Name: Base-VFX4
   m_TagString: Untagged
@@ -439,7 +466,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
+  - {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -471,6 +498,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2248775568176316127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4422108636578359885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdb71d455eb2642a754304dff2e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4872199075571278639
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9179627396327147732}
   - component: {fileID: 2237688190032311704}
+  - component: {fileID: 7397556808146349998}
   m_Layer: 0
   m_Name: Base-VFX7
   m_TagString: Untagged
@@ -523,7 +563,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
+  - {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -555,6 +595,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7397556808146349998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4872199075571278639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdb71d455eb2642a754304dff2e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5617685871991362277
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3053916196599862269}
   - component: {fileID: 4977041908730487490}
+  - component: {fileID: 8494567310615660408}
   m_Layer: 0
   m_Name: Base-VFX3
   m_TagString: Untagged
@@ -607,7 +660,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
+  - {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -639,6 +692,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8494567310615660408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617685871991362277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdb71d455eb2642a754304dff2e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5763198169500000176
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4515635358823033495}
   - component: {fileID: 91273724834647167}
+  - component: {fileID: 1004731367237815585}
   m_Layer: 0
   m_Name: Base-VFX8
   m_TagString: Untagged
@@ -691,7 +757,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
+  - {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -723,6 +789,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1004731367237815585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763198169500000176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdb71d455eb2642a754304dff2e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7664072573661951952
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2878006776041059815}
   - component: {fileID: 1425126033848984716}
+  - component: {fileID: 7799320744238720038}
   m_Layer: 0
   m_Name: Base-VFX1
   m_TagString: Untagged
@@ -775,7 +854,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
+  - {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -807,6 +886,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7799320744238720038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7664072573661951952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdb71d455eb2642a754304dff2e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7919906403613710060
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4450596842482329906}
   - component: {fileID: 6820887382718828064}
+  - component: {fileID: 1992683737781318854}
   m_Layer: 0
   m_Name: Base-VFX5
   m_TagString: Untagged
@@ -859,7 +951,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
+  - {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -891,6 +983,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1992683737781318854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7919906403613710060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdb71d455eb2642a754304dff2e13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8271297126536483765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1212,7 @@ MonoBehaviour:
   - {x: -0.12465501, y: -0.4529965, z: 0}
   m_ShapePathHash: -826565579
   m_Mesh: {fileID: 0}
-  m_InstanceId: 28324
+  m_InstanceId: -1272
   m_LocalBounds:
     m_Center: {x: 0.00005853176, y: 0.0001001358, z: 0}
     m_Extent: {x: 0.45289528, y: 0.45309663, z: 0}
