@@ -5,9 +5,9 @@ using System;
 public class ParaDefine : SingletonMono<ParaDefine>
 {
     [Serializable]
-    public class litColorSetting
+    public class LitColorSetting
     {
-        public litColorSetting(Color _color, float _idensity)
+        public LitColorSetting(Color _color, float _idensity)
         {
             this.color = _color;
             this.idensity = _idensity;
@@ -15,5 +15,6 @@ public class ParaDefine : SingletonMono<ParaDefine>
         public Color color;
         public float idensity;
     }
-    public litColorSetting signDisableColor, signEnableColor;
+    public LitColorSetting signDisableColor, signEnableColor;
+    public float laserSpeed;
 }
