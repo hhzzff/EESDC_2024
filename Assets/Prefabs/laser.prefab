@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c53dbb3359e3c8438d9725dcc554406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  laserData: {fileID: 11400000, guid: c7cc92cb4ec2e234ca20aa4f78d58f40, type: 2}
 --- !u!61 &8860729015692158311
 BoxCollider2D:
   m_ObjectHideFlags: 0

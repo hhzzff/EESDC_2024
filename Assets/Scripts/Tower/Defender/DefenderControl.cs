@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class DefenderControl : MonoBehaviour
 {
-    public float rotateSpeed = 135f;
+    public DefenderData defenderData;
+    public LaserData laserData;
     public float currentAngle;
-    public GameObject battery, bulletFa, laser;
+    public GameObject battery, bulletFa, laser, predoctionG;
+    public Animator batteryAnim;
     public Material SignLightEnableMat, SignLightDisableMat;
     [SerializeField]
     public bool[][] SignLightEnabled = new bool[2][]{
@@ -23,12 +25,12 @@ public class DefenderControl : MonoBehaviour
     }
     public State currentState = State.Idle;
     public bool inAttackCD;
-    public float attackCDMax = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
         battery = transform.Find("Battery").gameObject;
         bulletFa = GameObject.Find("Bullet");
+        batteryAnim = battery.GetComponent<Animator>();
         currentAngle = transform.eulerAngles.z + battery.transform.eulerAngles.z + 90;
     }
 
@@ -49,11 +51,16 @@ public class DefenderControl : MonoBehaviour
                 return 1;
             return 0;
         });
+        // Debug.Log("sort finished");
         foreach (EnemyInfo enemy in enemyList)
         {
             if (enemy.hp > 0)
             {
-                float t = (enemy.pos - (Vector2)transform.position).magnitude / ParaDefine.GetInstance().laserSpeed;
+                // Debug.Log("EnemyPos:" + enemy.pos.x + ", " + enemy.pos.y);
+                // Debug.Log("EnemyVel:" + enemy.vel.x + ", " + enemy.vel.y);
+                // Debug.Log("CurrentAngle:" + currentAngle);
+                float t = (enemy.pos - (Vector2)transform.position).magnitude / laserData.speed;
+                predoctionG.transform.position = new Vector2(enemy.pos.x + enemy.vel.x * t, enemy.pos.y + enemy.vel.y * t);
                 RotateBatteryTo(Mathf.Atan2(
                     enemy.pos.y + enemy.vel.y * t - transform.position.y,
                     enemy.pos.x + enemy.vel.x * t - transform.position.x
@@ -69,9 +76,12 @@ public class DefenderControl : MonoBehaviour
         while (currentAngle - angle > 180)
             angle += 360;
         // Debug.Log("current " + currentAngle.ToString() + " rotate to " + angle);
-        if (Mathf.Abs(angle - currentAngle) <= Time.deltaTime * rotateSpeed)
+        if (Mathf.Abs(angle - currentAngle) <= 3 * Time.deltaTime * defenderData.rotarySpeed)
         {
-            currentAngle = angle;
+            if (Mathf.Abs(angle - currentAngle) <= Time.deltaTime * defenderData.rotarySpeed)
+            {
+                currentAngle = angle;
+            }
             currentState = State.Shooting;
             battery.transform.rotation = Quaternion.AngleAxis(currentAngle - 90, Vector3.forward);
             TryAttack();
@@ -79,9 +89,9 @@ public class DefenderControl : MonoBehaviour
         }
         currentState = State.Aiming;
         if (angle > currentAngle)
-            currentAngle = (currentAngle + Time.deltaTime * rotateSpeed) % 360;
+            currentAngle = (currentAngle + Time.deltaTime * defenderData.rotarySpeed) % 360;
         if (angle < currentAngle)
-            currentAngle = (currentAngle - Time.deltaTime * rotateSpeed) % 360;
+            currentAngle = (currentAngle - Time.deltaTime * defenderData.rotarySpeed) % 360;
         battery.transform.rotation = Quaternion.AngleAxis(currentAngle - 90, Vector3.forward);
     }
     void TryAttack()
@@ -91,12 +101,12 @@ public class DefenderControl : MonoBehaviour
     }
     IEnumerator Attack()
     {
-
-        GameObject bullet = Instantiate(laser, transform.position, Quaternion.identity, bulletFa.transform);
-        bullet.GetComponent<Rigidbody2D>().velocity = ParaDefine.GetInstance().laserSpeed * (
-            Vector2.right * Mathf.Cos(currentAngle) + Vector2.up * Mathf.Sin(currentAngle));
+        batteryAnim.SetTrigger("Shoot");
+        GameObject bullet = Instantiate(laser, transform.position, Quaternion.AngleAxis(currentAngle + 90, Vector3.forward), bulletFa.transform);
+        bullet.GetComponent<Rigidbody2D>().velocity = laserData.speed * (
+            Vector2.right * Mathf.Cos(currentAngle * Mathf.Deg2Rad) + Vector2.up * Mathf.Sin(currentAngle * Mathf.Deg2Rad));
         inAttackCD = true;
-        yield return new WaitForSeconds(attackCDMax);
+        yield return new WaitForSeconds(defenderData.firingRate);
         inAttackCD = false;
     }
     void CheckGlobalLightDirection()

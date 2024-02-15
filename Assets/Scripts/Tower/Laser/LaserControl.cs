@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserControl : MonoBehaviour
 {
-    public int damage;
+    public LaserData laserData;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +18,11 @@ public class LaserControl : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (CompareTag("Enemy"))
+        Debug.Log("damage?");
+        if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<Enemy>().TakeDamage(damage);
+            Debug.Log("damage!");
+            collision.GetComponent<Enemy>().TakeDamage(laserData.damage);
             Destroy(gameObject);
         }
     }
