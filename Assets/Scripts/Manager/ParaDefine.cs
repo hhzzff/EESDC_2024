@@ -16,5 +16,4 @@ public class ParaDefine : SingletonMono<ParaDefine>
         public float idensity;
     }
     public LitColorSetting signDisableColor, signEnableColor;
-    public float laserSpeed;
 }

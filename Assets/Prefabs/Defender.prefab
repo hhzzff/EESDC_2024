@@ -311,11 +311,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74c26623304c14d44a3c3f6874109581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 156.6
+  defenderData: {fileID: 11400000, guid: 9325f592ad660d74fbb8551ac6d17acf, type: 2}
+  laserData: {fileID: 11400000, guid: c7cc92cb4ec2e234ca20aa4f78d58f40, type: 2}
   currentAngle: 0
   battery: {fileID: 0}
+  bulletFa: {fileID: 0}
+  laser: {fileID: 7046192526983139256, guid: 397e65ab206ce804cbe0dda19904c6f2, type: 3}
+  batteryAnim: {fileID: 0}
   SignLightEnableMat: {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
   SignLightDisableMat: {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
+  currentState: 0
+  inAttackCD: 0
 --- !u!1 &4293132390711574672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,6 +1011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8154451660187332538}
   - component: {fileID: 1233722853597007563}
+  - component: {fileID: 4280928452692091584}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Untagged
@@ -1081,6 +1088,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4280928452692091584
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8271297126536483765}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9243fa84f835fb442ac55d34b9a340e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8538496633352901474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1240,7 @@ MonoBehaviour:
   - {x: -0.12465501, y: -0.4529965, z: 0}
   m_ShapePathHash: -826565579
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1272
+  m_InstanceId: -1290
   m_LocalBounds:
     m_Center: {x: 0.00005853176, y: 0.0001001358, z: 0}
     m_Extent: {x: 0.45289528, y: 0.45309663, z: 0}
