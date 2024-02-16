@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Laser
+  m_Name: Laser1
   m_Shader: {fileID: -6465566751694194690, guid: ad7b0c7289a9b0342b8d385e83652d4e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -59,5 +59,5 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _GlowColor: {r: 0, g: 56.49328, b: 37.66219, a: 0}
+    - _GlowColor: {r: 0, g: 9.082412, b: 6.0549417, a: 0}
   m_BuildTextureStacks: []
