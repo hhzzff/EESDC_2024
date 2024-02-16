@@ -4,11 +4,58 @@ using UnityEngine;
 
 public class DefenderLightControl : MonoBehaviour
 {
-
+    GameObject entity, defender;
     Renderer CurrentRenderer;
     Color CurrentLitColor, TargetLitColor;
-    public void ChangeSignLightColor(int childId, bool enabled)
+    public LayerMask shaderLayer;
+    bool[] signLightEnabled = { false, false };
+    void Start()
     {
+        entity = transform.GetChild(0).gameObject;
+        defender = transform.parent.parent.gameObject;
+    }
+    void Update()
+    {
+        CheckGlobalLightDirection();
+        CheckLightSourceDirection();
+        if (signLightEnabled[0] == false && signLightEnabled[1] == true)
+            ChangeSignLightColor(true);
+        if (signLightEnabled[0] == true && signLightEnabled[1] == false)
+            ChangeSignLightColor(false);
+        signLightEnabled[0] = signLightEnabled[1];
+        signLightEnabled[1] = false;
+    }
+    void CheckGlobalLightDirection()
+    {
+        Debug.Log("transform.pos: " + entity.transform.position);
+        Debug.Log("Globallight.pos: " + GlobalLightControl.GetInstance().transform.position);
+        if (!Physics2D.Raycast(
+            entity.transform.position,
+            GlobalLightControl.GetInstance().transform.position - entity.transform.position,
+            GlobalLightControl.GetInstance().rotateRadius * 2,
+            shaderLayer))
+        {
+            signLightEnabled[1] = true;
+        }
+    }
+    void CheckLightSourceDirection()
+    {
+        GameObject[] lightSourceList = GameObject.FindGameObjectsWithTag("LightSource");
+        foreach (GameObject lightSource in lightSourceList)
+        {
+            if (!Physics2D.Raycast(
+                entity.transform.position,
+                lightSource.transform.position - entity.transform.position,
+                GlobalLightControl.GetInstance().rotateRadius * 2,
+                shaderLayer))
+            {
+                signLightEnabled[1] = true;
+            }
+        }
+    }
+    public void ChangeSignLightColor(bool enabled)
+    {
+        defender.GetComponent<DefenderControl>().SwitchChargingState(enabled ? 1 : -1);
         // Debug.Log(childId + "changing color to " + enabled);
         if (enabled)
         {
