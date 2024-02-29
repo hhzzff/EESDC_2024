@@ -54,7 +54,7 @@ public class DefenderControl : MonoBehaviour
                 // Debug.Log("EnemyVel:" + enemy.vel.x + ", " + enemy.vel.y);
                 // Debug.Log("CurrentAngle:" + currentAngle);
                 float t = (enemy.pos - (Vector2)transform.position).magnitude / laserData.speed[GetLaserLevel()];
-                predoctionG.transform.position = new Vector2(enemy.pos.x + enemy.vel.x * t, enemy.pos.y + enemy.vel.y * t);
+                // predoctionG.transform.position = new Vector2(enemy.pos.x + enemy.vel.x * t, enemy.pos.y + enemy.vel.y * t);
                 RotateBatteryTo(Mathf.Atan2(
                     enemy.pos.y + enemy.vel.y * t - transform.position.y,
                     enemy.pos.x + enemy.vel.x * t - transform.position.x
