@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour,IEnemy
+public class Enemy : MonoBehaviour, IEnemy
 {
     public EnemyInfo info;
-    private Renderer renderer=new Renderer();
+    private Renderer renderer = new Renderer();
     void Start()
     {
         renderer = GetComponent<Renderer>();
@@ -14,19 +14,19 @@ public class Enemy : MonoBehaviour,IEnemy
     void Update()
     {
         Step2Center();
-        TakeDamage(1);
+        // TakeDamage(1);
     }
     void Step2Center()
     {
-        float norm=Mathf.Sqrt(transform.position.x*transform.position.x + transform.position.y*transform.position.y);
-        info.vel = new Vector2(-transform.position.x, -transform.position.y)/norm;
-        transform.position +=Time.deltaTime* new Vector3(info.vel.x, info.vel.y, 0);
-        info.pos = new Vector2(transform.position.x,transform.position.y);
+        float norm = Mathf.Sqrt(transform.position.x * transform.position.x + transform.position.y * transform.position.y);
+        info.vel = new Vector2(-transform.position.x, -transform.position.y) / norm;
+        transform.position += Time.deltaTime * new Vector3(info.vel.x, info.vel.y, 0);
+        info.pos = new Vector2(transform.position.x, transform.position.y);
     }
     public void TakeDamage(int damage)
     {
         FlashWhite();
-        info.hp -= damage; //hp½»¸ømanager¼ì²é
+        info.hp -= damage; //hpï¿½ï¿½ï¿½ï¿½managerï¿½ï¿½ï¿½
         Debug.Log(info.hp);
 
     }

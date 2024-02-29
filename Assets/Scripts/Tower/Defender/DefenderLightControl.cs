@@ -94,7 +94,7 @@ public class DefenderLightControl : MonoBehaviour
         litColor = currentLitColor;
         // Debug.Log("LoopVFX1" + targetRenderer.ToString() + litColor.ToString());
         int cnt = 0;
-        while (cnt < 20)
+        while (cnt < 1)
         {
             litColor *= 0.8f;
             propertyBlock.SetColor("_GlowColor", litColor);

@@ -444,13 +444,15 @@ MonoBehaviour:
   currentAngle: 0
   battery: {fileID: 0}
   bulletFa: {fileID: 0}
-  laser: {fileID: 7046192526983139256, guid: 397e65ab206ce804cbe0dda19904c6f2, type: 3}
   predoctionG: {fileID: 0}
+  laser:
+  - {fileID: 996105471888865112, guid: 380a077874e8aec43b6c38819dc4ec13, type: 3}
+  - {fileID: 1986303326687237747, guid: 258b080d5616ea4478cc45476f3aaf66, type: 3}
+  - {fileID: 2751160628141638194, guid: 59f4870ce058e9f46be18bbdeeed1743, type: 3}
   batteryAnim: {fileID: 0}
-  SignLightEnableMat: {fileID: 2100000, guid: f5dd3e3848cb2ec40b6bb9faf8073489, type: 2}
-  SignLightDisableMat: {fileID: 2100000, guid: a8ea3ee8a335a1c41a9c7b77f8a914a2, type: 2}
   currentState: 0
   inAttackCD: 0
+  chargingState: 0
 --- !u!1 &4293132390711574672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,7 +1308,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1452,7 +1454,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1522,7 +1524,7 @@ MonoBehaviour:
   - {x: -0.12465501, y: -0.4529965, z: 0}
   m_ShapePathHash: -826565579
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1290
+  m_InstanceId: -1272
   m_LocalBounds:
     m_Center: {x: 0.00005853176, y: 0.0001001358, z: 0}
     m_Extent: {x: 0.45289528, y: 0.45309663, z: 0}
