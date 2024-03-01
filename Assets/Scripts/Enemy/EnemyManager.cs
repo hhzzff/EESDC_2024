@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class EnemyManager : SingletonMono<EnemyManager>,IEnemyManager
+public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
 {
     // Start is called before the first frame update
     public Enemy myPrefab;
-    public Dictionary<EnemyType,int> hpDic = new Dictionary<EnemyType,int>();
+    public Dictionary<EnemyType, int> hpDic = new Dictionary<EnemyType, int>();
     List<Enemy> enemies = new List<Enemy>();
     Vector3 rightUp;
     Vector3 leftDown;
@@ -15,14 +15,15 @@ public class EnemyManager : SingletonMono<EnemyManager>,IEnemyManager
     float left;
     float up;
     float down;
+    int cnt = 0;
     void Start()
     {
         rightUp = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
-        leftDown=Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
+        leftDown = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
         right = rightUp.x;
         left = leftDown.x;
         up = rightUp.y;
-        down =leftDown.y;
+        down = leftDown.y;
         hpDic.Add(EnemyType.Basic, 100);
         //Add.....
     }
@@ -31,14 +32,18 @@ public class EnemyManager : SingletonMono<EnemyManager>,IEnemyManager
     void Update()
     {
         CheckHp();
-        GenerateEnemy();
-        
+        if (cnt-- == 0)
+        {
+            GenerateEnemy();
+            cnt = 50;
+        }
+
     }
-    void GenerateEnemy() //Ôö¼ÓÐÂµÄµÐÈË£¬¿¼ÂÇËæTime.timeÊýÄ¿µÝÔö£¬random³õÊ¼»¯
+    void GenerateEnemy() //ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄµï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Time.timeï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½randomï¿½ï¿½Ê¼ï¿½ï¿½
     {
-        int generateNum = (int)(Time.time % 10)+1;  //Ö®ºó¿¼ÂÇ¸ü»»Îª¸üºÃµÄµÝÔö²ßÂÔ
-        float x,y;
-        for(int i=0;i<generateNum;i++)
+        int generateNum = (int)(Time.time % 10) + 1;  //Ö®ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ÃµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        float x, y;
+        for (int i = 0; i < generateNum; i++)
         {
             x = Random.Range(left - 5, right + 5);
             if (x < left || x > right)
@@ -58,14 +63,14 @@ public class EnemyManager : SingletonMono<EnemyManager>,IEnemyManager
     }
     void RemoveEnemy(Enemy enemy)
     {
-        if(enemies.Contains(enemy))
+        if (enemies.Contains(enemy))
         {
             Debug.Log("Enemy Dies");
             enemies.Remove(enemy);
             Destroy(enemy.gameObject);
         }
     }
-    void CheckHp()  //Ïú»ÙHpÇå¿ÕµÄµÐÈË
+    void CheckHp()  //ï¿½ï¿½ï¿½ï¿½Hpï¿½ï¿½ÕµÄµï¿½ï¿½ï¿½
     {
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
@@ -77,11 +82,11 @@ public class EnemyManager : SingletonMono<EnemyManager>,IEnemyManager
         }
     }
 
-    public List<EnemyInfo> GetEnemyList()  //·µ»Øinfo
+    public List<EnemyInfo> GetEnemyList()  //ï¿½ï¿½ï¿½ï¿½info
     {
         List<EnemyInfo> enemyInfos = new List<EnemyInfo>();
-        foreach(Enemy enemy in enemies)
+        foreach (Enemy enemy in enemies)
             enemyInfos.Add(enemy.info);
         return enemyInfos;
-    }//»ñÈ¡ËùÓÐÒÑÉú³ÉµÄµÐÈËÐÅÏ¢
+    }//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄµï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 }
