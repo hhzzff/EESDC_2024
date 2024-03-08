@@ -5,10 +5,11 @@ public enum TowerType
 {
     None,
     Defender,
+    Beacon,
 }
 public class TowerManager : SingletonMono<TowerManager>
 {
-    public GameObject towerPa, defender;
+    public GameObject towerPa, defender, beacon;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,9 @@ public class TowerManager : SingletonMono<TowerManager>
         {
             case TowerType.Defender:
                 Instantiate(defender, pos, Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.right, dir), Vector3.forward), towerPa.transform);
+                break;
+            case TowerType.Beacon:
+                Instantiate(beacon, pos, Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.right, dir), Vector3.forward), towerPa.transform);
                 break;
         }
     }
