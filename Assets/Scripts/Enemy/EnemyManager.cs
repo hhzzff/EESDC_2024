@@ -5,9 +5,11 @@ using UnityEngine.UIElements;
 
 public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
 {
-    // Start is called before the first frame update
-    public Enemy myPrefab;
-    public Dictionary<EnemyType, int> hpDic = new Dictionary<EnemyType, int>();
+    public Triangle triangle;
+    public Circle circle;
+    public Dot dot;
+    public Square square;
+  
     List<Enemy> enemies = new List<Enemy>();
     Vector3 rightUp;
     Vector3 leftDown;
@@ -24,8 +26,6 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         left = leftDown.x;
         up = rightUp.y;
         down = leftDown.y;
-        hpDic.Add(EnemyType.Basic, 100);
-        //Add.....
     }
 
     // Update is called once per frame
@@ -35,13 +35,13 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         if (cnt-- == 0)
         {
             GenerateEnemy();
-            cnt = 50;
+            cnt = 100;
         }
 
     }
-    void GenerateEnemy() //ï¿½ï¿½ï¿½ï¿½ï¿½ÂµÄµï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Time.timeï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½randomï¿½ï¿½Ê¼ï¿½ï¿½
+    void GenerateEnemy() 
     {
-        int generateNum = (int)(Time.time % 10) + 1;  //Ö®ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ÃµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        int generateNum = (int)(Time.time % 10) + 1;  
         float x, y;
         for (int i = 0; i < generateNum; i++)
         {
@@ -55,9 +55,28 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
                 else
                     y = Random.Range(up, up + 5);
             }
-            Enemy newEnemy = Instantiate(myPrefab, new Vector3(x, y, 0), Quaternion.identity);
-            newEnemy.info.hp = hpDic[EnemyType.Basic];
-            newEnemy.info.type = EnemyType.Basic;
+            // should be random
+            int randomValue = Random.Range(0, 4); // Éú³É0µ½3Ö®¼äµÄËæ»úÕûÊý
+            Enemy newEnemy;
+            switch (randomValue)
+            {
+                case 0:
+                    newEnemy = Instantiate(triangle, new Vector3(x, y, 0), Quaternion.identity);
+                    break;
+                case 1:
+                    newEnemy = Instantiate(dot, new Vector3(x, y, 0), Quaternion.identity);
+                    break;
+                case 2:
+                    newEnemy = Instantiate(square, new Vector3(x, y, 0), Quaternion.identity);
+                    break;
+                case 3:
+                    newEnemy = Instantiate(circle, new Vector3(x, y, 0), Quaternion.identity);
+                    break;
+                default:
+                    newEnemy = null;
+                    break;
+
+            }
             enemies.Add(newEnemy);
         }
     }
@@ -70,7 +89,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
             Destroy(enemy.gameObject);
         }
     }
-    void CheckHp()  //ï¿½ï¿½ï¿½ï¿½Hpï¿½ï¿½ÕµÄµï¿½ï¿½ï¿½
+    void CheckHp()  
     {
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
@@ -81,12 +100,23 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
             }
         }
     }
-
-    public List<EnemyInfo> GetEnemyList()  //ï¿½ï¿½ï¿½ï¿½info
+    public List<EnemyInfo> GetEnemyList() 
     {
         List<EnemyInfo> enemyInfos = new List<EnemyInfo>();
         foreach (Enemy enemy in enemies)
             enemyInfos.Add(enemy.info);
         return enemyInfos;
-    }//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉµÄµï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+    }
+    public void Summon()
+    {
+
+    }
+    public void Hatch(Vector2 pos,EnemyType type)
+    {
+        if (type == EnemyType.Dot)
+        {
+            Enemy newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity); 
+            enemies.Add(newEnemy);
+        }
+    }
 }
