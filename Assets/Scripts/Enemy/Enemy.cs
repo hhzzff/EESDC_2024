@@ -6,35 +6,30 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IEnemy
 {
     public EnemyInfo info;
-    private Renderer renderer = new Renderer();
-    void Start()
-    {
-        renderer = GetComponent<Renderer>();
-    }
-    void Update()
-    {
-        Step2Center();
-        // TakeDamage(1);
-    }
-    void Step2Center()
+    public float speed_rate;
+    public void Step2Center()
     {
         float norm = Mathf.Sqrt(transform.position.x * transform.position.x + transform.position.y * transform.position.y);
-        info.vel = new Vector2(-transform.position.x, -transform.position.y) / norm;
+        info.vel = new Vector2(-transform.position.x, -transform.position.y) *speed_rate/norm;
         transform.position += Time.deltaTime * new Vector3(info.vel.x, info.vel.y, 0);
         info.pos = new Vector2(transform.position.x, transform.position.y);
     }
     public void TakeDamage(int damage)
     {
+<<<<<<< HEAD
         FlashWhite();
         info.hp -= damage; //hp����manager���
         // Debug.Log(info.hp);
 
-    }
-    private IEnumerator FlashWhite()
-    {
-        renderer.material.color = Color.white;
-        yield return new WaitForSeconds(1f);
-        renderer.material.color = Color.black;
+=======
+        //FlashWhite();
+        info.hp -= damage; 
+        //Debug.Log(info.hp);
+>>>>>>> f37f6c78b5f8e3d4f7d0f0c2c4a504f74c78cbbc
     }
 
+    public void Attack(int damage)
+    {
+
+    }
 }
