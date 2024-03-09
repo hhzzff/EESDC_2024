@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour, IEnemy
     {
         FlashWhite();
         info.hp -= damage; //hp����manager���
-        Debug.Log(info.hp);
+        // Debug.Log(info.hp);
 
     }
     private IEnumerator FlashWhite()

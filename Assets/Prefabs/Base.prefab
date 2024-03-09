@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7586404113635019694}
   - component: {fileID: 5108658822433104501}
+  - component: {fileID: 3740990615339143895}
   - component: {fileID: 9131945474131156484}
   - component: {fileID: 7461454188842804803}
   - component: {fileID: 5066357715433329996}
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3740990615339143895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40998384506137796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72876abf11aa08c49bce6265bac88103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdingDefender: 0
+  holdingBeacon: 0
+  setDirection1: 0
+  setDirection2: 0
+  defender: {fileID: 6816844940121894679, guid: 7d331a1a0c68215498f27f83f444735f, type: 3}
+  beacon: {fileID: 2340325212912088595, guid: 3dcd678df5d855b4e8e8cbd98efeb5d4, type: 3}
+  holdingObject: {fileID: 0}
+  quaternion1: {x: 0, y: 0, z: 0, w: 0}
+  quaternion2: {x: 0, y: 0, z: 0, w: 0}
+  dropPos: {x: 0, y: 0}
 --- !u!114 &9131945474131156484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  originEnergy: 50
 --- !u!114 &7461454188842804803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +150,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 39302
+  m_InstanceId: -1402
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}

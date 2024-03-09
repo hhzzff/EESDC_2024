@@ -65,7 +65,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     {
         if (enemies.Contains(enemy))
         {
-            Debug.Log("Enemy Dies");
+            // Debug.Log("Enemy Dies");
             enemies.Remove(enemy);
             Destroy(enemy.gameObject);
         }

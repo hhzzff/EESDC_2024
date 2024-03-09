@@ -6,8 +6,11 @@ using UnityEngine;
 public class PlayerControl : SingletonMono<PlayerControl>
 {
     public bool holdingDefender, holdingBeacon;
-    public GameObject defenderUI, beaconUI;
+    public bool setDirection1, setDirection2;
+    public GameObject defender, beacon;
     public GameObject holdingObject;
+    public Quaternion quaternion1, quaternion2;
+    public Vector2 dropPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +32,16 @@ public class PlayerControl : SingletonMono<PlayerControl>
                 holdingDefender = false;
                 Destroy(holdingObject);
                 Debug.Log("Defender dropped");
-                TowerManager.GetInstance().CreateTower(TowerType.Defender, Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.up);
+                TowerManager.GetInstance().CreateTower(
+                    TowerType.Defender,
+                    Camera.main.ScreenToWorldPoint(Input.mousePosition),
+                    Quaternion.identity);
             }
             else
             {
                 if (!holdingObject)
                 {
-                    holdingObject = Instantiate(defenderUI);
+                    holdingObject = Instantiate(defender);
                 }
                 holdingObject.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 if (Input.GetMouseButtonDown(1))
@@ -49,18 +55,61 @@ public class PlayerControl : SingletonMono<PlayerControl>
         {
             if (Input.GetMouseButtonDown(0))
             {
-                holdingBeacon = false;
-                Destroy(holdingObject);
-                Debug.Log("Beacon dropped");
-                TowerManager.GetInstance().CreateTower(TowerType.Beacon, Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.up);
+                if (setDirection2)
+                {
+                    quaternion2 = Quaternion.AngleAxis(
+                        Vector2.SignedAngle(Vector2.down, Camera.main.ScreenToWorldPoint(Input.mousePosition) - holdingObject.transform.position), Vector3.forward);
+                    // Debug.Log(quaternion2.eulerAngles);
+                    holdingObject.transform.Find("Battery").transform.rotation = quaternion2;
+                    setDirection2 = false;
+                    TowerManager.GetInstance().CreateTower(TowerType.Beacon, dropPos, quaternion1, quaternion2);
+                    holdingBeacon = false;
+                    Destroy(holdingObject);
+                }
+                else
+                {
+                    if (setDirection1)
+                    {
+                        quaternion1 = Quaternion.AngleAxis(
+                                                    Vector2.SignedAngle(Vector2.up, Camera.main.ScreenToWorldPoint(Input.mousePosition) - holdingObject.transform.position), Vector3.forward);
+                        holdingObject.transform.rotation = quaternion1;
+                        setDirection1 = false;
+                        setDirection2 = true;
+                    }
+                    else
+                    {
+                        setDirection1 = true;
+                        dropPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    }
+                }
             }
             else
             {
                 if (!holdingObject)
                 {
-                    holdingObject = Instantiate(beaconUI);
+                    holdingObject = Instantiate(beacon);
                 }
-                holdingObject.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (setDirection1)
+                {
+                    quaternion1 = Quaternion.AngleAxis(
+                                                Vector2.SignedAngle(Vector2.up, Camera.main.ScreenToWorldPoint(Input.mousePosition) - holdingObject.transform.position), Vector3.forward);
+                    holdingObject.transform.rotation = quaternion1;
+                }
+                else
+                {
+                    if (setDirection2)
+                    {
+                        quaternion2 = Quaternion.AngleAxis(
+                            Vector2.SignedAngle(Vector2.down, Camera.main.ScreenToWorldPoint(Input.mousePosition) - holdingObject.transform.position), Vector3.forward);
+                        // Debug.Log(quaternion2.eulerAngles);
+                        holdingObject.transform.Find("Battery").transform.rotation = quaternion2;
+                    }
+                    else
+                    {
+                        holdingObject.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    }
+
+                }
                 if (Input.GetMouseButtonDown(1))
                 {
                     holdingBeacon = false;

@@ -35,6 +35,10 @@ public class BaseControl : SingletonMono<BaseControl>
     {
         return score;
     }
+    public void AddScore(int addScore)
+    {
+        score += addScore;
+    }
     public void DamageBase(int damage)
     {
         health -= damage;

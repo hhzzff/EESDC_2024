@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefenderLightControl : MonoBehaviour
+public class BeaconLightControl : MonoBehaviour
 {
-    GameObject entity, defender;
+    GameObject entity, beacon;
     Renderer CurrentRenderer;
     Color CurrentLitColor, TargetLitColor;
     public LayerMask shaderLayer;
@@ -13,7 +13,7 @@ public class DefenderLightControl : MonoBehaviour
     void Start()
     {
         entity = transform.GetChild(0).gameObject;
-        defender = transform.parent.parent.gameObject;
+        beacon = transform.parent.parent.gameObject;
     }
     void Update()
     {
@@ -47,6 +47,8 @@ public class DefenderLightControl : MonoBehaviour
         {
             if (!lightSource.transform.parent.parent.GetComponent<BeaconControl>().lightEnabled)
                 continue;
+            if (lightSource.transform.parent.parent == beacon)
+                continue;
             if (signLightEnabled[1])
                 break;
             signLightEnabled[1] = true;
@@ -70,7 +72,7 @@ public class DefenderLightControl : MonoBehaviour
     }
     public void ChangeSignLightColor(bool enabled)
     {
-        defender.GetComponent<DefenderControl>().SwitchChargingState(enabled ? 1 : -1);
+        beacon.GetComponent<BeaconControl>().SwitchChargingState(enabled ? 1 : -1);
         // Debug.Log(childId + "changing color to " + enabled);
         if (enabled)
         {
