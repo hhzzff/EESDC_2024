@@ -5,6 +5,7 @@ using UnityEngine;
 public class Panel_Help : MonoBehaviour
 {
     public GameObject buttonExit;
+    public GameObject panelGamestart;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,6 @@ public class Panel_Help : MonoBehaviour
     public void ExitPanel(GameObject helpPanel)
     {
         helpPanel.SetActive(false);
+        panelGamestart.SetActive(true);
     }
 }
