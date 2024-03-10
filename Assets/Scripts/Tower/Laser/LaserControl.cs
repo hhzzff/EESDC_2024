@@ -22,10 +22,10 @@ public class LaserControl : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("damage?");
+        // Debug.Log("damage?");
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("damage!");
+            // Debug.Log("damage!");
             collision.GetComponent<Enemy>().TakeDamage(laserData.damage[level]);
             Destroy(gameObject);
         }

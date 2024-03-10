@@ -10,14 +10,14 @@ public class Enemy : MonoBehaviour, IEnemy
     public void Step2Center()
     {
         float norm = Mathf.Sqrt(transform.position.x * transform.position.x + transform.position.y * transform.position.y);
-        info.vel = new Vector2(-transform.position.x, -transform.position.y) *speed_rate/norm;
+        info.vel = new Vector2(-transform.position.x, -transform.position.y) * speed_rate / norm;
         transform.position += Time.deltaTime * new Vector3(info.vel.x, info.vel.y, 0);
         info.pos = new Vector2(transform.position.x, transform.position.y);
     }
     public void TakeDamage(int damage)
     {
         //FlashWhite();
-        info.hp -= damage; 
+        info.hp -= damage;
         //Debug.Log(info.hp);
     }
 
