@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class HoverAnim : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerUpHandler
 {
+    public float sacleOrigin;
     public float scaleChange = 1.1f;
     public AudioSource source;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        scaleChange = 1.1f;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -20,11 +21,11 @@ public class HoverAnim : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        transform.localScale = new Vector3(1, 1, 1);
+        transform.localScale = new Vector3(1, 1, 1)*sacleOrigin;
     }
      public void OnPointerUp(PointerEventData eventData)
     {
-        transform.localScale = new Vector3(1, 1, 1);
+        transform.localScale = new Vector3(1, 1, 1)*sacleOrigin;
     }
     // Update is called once per frame
     void Update()
