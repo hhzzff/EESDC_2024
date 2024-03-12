@@ -31,7 +31,6 @@ public class PlayerControl : SingletonMono<PlayerControl>
             {
                 holdingDefender = false;
                 Destroy(holdingObject);
-                Debug.Log("Defender dropped");
                 TowerManager.GetInstance().CreateTower(
                     TowerType.Defender,
                     Camera.main.ScreenToWorldPoint(Input.mousePosition),
