@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
-public class BaseControl : SingletonMono<BaseControl>
+public class BaseControl : SingletonMono<BaseControl>, IBase
 {
     public int maxHealth = 100;
     int health;
@@ -11,10 +9,20 @@ public class BaseControl : SingletonMono<BaseControl>
     int score;
     public int originEnergy;
     // Start is called before the first frame update
+    // IEnumerator UpdatePerSecond()
+    // {
+    //     yield return new WaitForSeconds(0.1f);
+    //     while (true)
+    //     {
+    //         AddEnergy(1);
+    //         yield return new WaitForSeconds(1);
+    //     }
+    // }
     void Start()
     {
         health = maxHealth;
         energy = originEnergy;
+        // StartCoroutine(UpdatePerSecond());
     }
 
     // Update is called once per frame
@@ -35,9 +43,17 @@ public class BaseControl : SingletonMono<BaseControl>
     {
         return score;
     }
-    public void AddScore(int addScore)
+    public void AddScore(int _score)
     {
-        score += addScore;
+        score += _score;
+        if (_score > 0)
+            GamingUIControl.GetInstance().UpdateScore();
+    }
+    public void AddEnergy(int _energy)
+    {
+        energy += _energy;
+        if (_energy > 0)
+            GamingUIControl.GetInstance().UpdateEnergy();
     }
     public void DamageBase(int damage)
     {
@@ -46,6 +62,7 @@ public class BaseControl : SingletonMono<BaseControl>
         {
             Destroy(gameObject);
         }
-        Debug.Log("Base damaged!");
+        if (damage > 0)
+            GamingUIControl.GetInstance().UpdateHealth();
     }
 }

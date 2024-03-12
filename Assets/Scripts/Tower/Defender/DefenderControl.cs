@@ -44,27 +44,16 @@ public class DefenderControl : MonoBehaviour
                 return 1;
             return 0;
         });
-        // Debug.Log("sort finished");
         foreach (EnemyInfo enemy in enemyList)
         {
             if (enemy.hp > 0)
             {
-                // Debug.Log("EnemyPos:" + enemy.pos.x + ", " + enemy.pos.y);
-                // Debug.Log("EnemyVel:" + enemy.vel.x + ", " + enemy.vel.y);
-                // Debug.Log("CurrentAngle:" + currentAngle);
                 float t = (enemy.pos - (Vector2)transform.position).magnitude / laserData.speed[GetLaserLevel()];
                 // predoctionG.transform.position = new Vector2(enemy.pos.x + enemy.vel.x * t, enemy.pos.y + enemy.vel.y * t);
                 RotateBatteryTo(Mathf.Atan2(
                     enemy.pos.y + enemy.vel.y * t - transform.position.y,
                     enemy.pos.x + enemy.vel.x * t - transform.position.x
                     ) * Mathf.Rad2Deg);
-                Debug.Log("enemy pos:" + enemy.pos + "   predict pos:" + new Vector2(
-                    enemy.pos.x + enemy.vel.x * t,
-                    enemy.pos.y + enemy.vel.y * t) + "   time:" + t);
-                Debug.Log("enemy vel:" + enemy.vel);
-                predoctionG.transform.position = new Vector2(
-                    enemy.pos.x + enemy.vel.x * t,
-                    enemy.pos.y + enemy.vel.y * t);
                 break;
             }
         }
