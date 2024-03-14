@@ -97,7 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29338c1acdefd3c41840eab8c29f7443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed_rate: 3
+  speed_rate: 0
+  rb: {fileID: 0}
 --- !u!1 &6794079269972560719
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +110,7 @@ GameObject:
   - component: {fileID: 583569270770803475}
   - component: {fileID: -8298398807519288496}
   - component: {fileID: 5091680844917473094}
+  - component: {fileID: -6566045738914760923}
   m_Layer: 0
   m_Name: Dot
   m_TagString: Enemy
@@ -145,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed_rate: 3
+  rb: {fileID: 0}
 --- !u!58 &5091680844917473094
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,3 +183,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.30645162
+--- !u!50 &-6566045738914760923
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794079269972560719}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

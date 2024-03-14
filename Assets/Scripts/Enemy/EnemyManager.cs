@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-
 public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
 {
     public Triangle triangle;
@@ -104,19 +103,29 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     {
         List<EnemyInfo> enemyInfos = new List<EnemyInfo>();
         foreach (Enemy enemy in enemies)
+        {
+            enemy.UpdateInfo();
             enemyInfos.Add(enemy.info);
+        }
         return enemyInfos;
+    }
+    public async void Push(Enemy enemy)
+    {
+
     }
     public void Summon()
     {
 
     }
-    public void Hatch(Vector2 pos,EnemyType type)
+    public async void Hatch(Vector2 pos,EnemyType type)
     {
         if (type == EnemyType.Dot)
         {
             Enemy newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity); 
             enemies.Add(newEnemy);
+            newEnemy.go2center = false;
+            //await Push(newEnemy);
+            newEnemy.go2center=true;
         }
     }
 }

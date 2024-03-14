@@ -27,8 +27,8 @@ public class DefenderLightControl : MonoBehaviour
     }
     void CheckGlobalLightDirection()
     {
-        Debug.Log("transform.pos: " + entity.transform.position);
-        Debug.Log("Globallight.pos: " + GlobalLightControl.GetInstance().transform.position);
+        //Debug.Log("transform.pos: " + entity.transform.position);
+        //Debug.Log("Globallight.pos: " + GlobalLightControl.GetInstance().transform.position);
         if (!Physics2D.Raycast(
             entity.transform.position,
             GlobalLightControl.GetInstance().transform.position - entity.transform.position,
