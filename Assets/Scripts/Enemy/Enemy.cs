@@ -7,17 +7,34 @@ public class Enemy : MonoBehaviour, IEnemy
 {
     public EnemyInfo info;
     public float speed_rate;
+    public Rigidbody2D rb;
+    public bool go2center = true;
+    private void Start()
+    {
+        rb=GetComponent<Rigidbody2D>();
+    }
     public void Step2Center()
     {
         float norm = Mathf.Sqrt(transform.position.x * transform.position.x + transform.position.y * transform.position.y);
-        info.vel = new Vector2(-transform.position.x, -transform.position.y) * speed_rate / norm;
-        transform.position += Time.deltaTime * new Vector3(info.vel.x, info.vel.y, 0);
-        info.pos = new Vector2(transform.position.x, transform.position.y);
+        if (norm < 1.5)
+        {
+            rb.velocity = -rb.position * 3;
+        }
+        else
+        {
+            rb.AddForce(-rb.position / norm * speed_rate);
+            speed_rate *= 0.9875f;
+        }
+    }
+    public void UpdateInfo()
+    {
+        info.vel = rb.velocity;
+        info.pos = rb.position;
     }
     public void TakeDamage(int damage)
     {
         //FlashWhite();
-        info.hp -= damage;
+        info.hp -= damage; 
         //Debug.Log(info.hp);
     }
 

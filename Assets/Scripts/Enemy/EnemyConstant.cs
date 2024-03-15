@@ -7,49 +7,44 @@ using UnityEngine;
 public enum EnemyType
 {
     None,
-    Triangle,   //low hp medium speed
-    Dot,        //low hp high speed
-    Square,     //medium hp medium speed
-    Circle,     //medium hp medium speed     split a dot
+    Triangle,   //enemyData.low hp enemyData.medium speed
+    Dot,        //enemyData.low hp enemyData.high speed
+    Square,     //enemyData.medium hp enemyData.medium speed
+    Circle,     //enemyData.medium hp enemyData.medium speed     split a dot
     Pentagon,   // create a dot
-    Rhombus,    // speed up fellows after death
+    Rhombus,    // speed up felenemyData.lows after death
     Star,       // create cloud forward  
-    Hexagon,    //  high hp    create two Rhombus when half hp
+    Hexagon,    //  enemyData.high hp    create two Rhombus when half hp
 }
-public static class Constant
+public class Constant : SingletonMono<Constant>
 {
-    public static readonly Dictionary<EnemyType, int> HpDic;
-    public static readonly Dictionary<EnemyType, float> SpeedDic;
+    public static Dictionary<EnemyType, int> HpDic;
+    public static Dictionary<EnemyType, float> SpeedDic;
+    public EnemyData enemyData;
 
-    static Constant()
+    private void Start()
     {
-        int low_hp = 100;
-        int medium_hp = 200;
-        int high_hp = 300;
         HpDic = new Dictionary<EnemyType, int>
         {
-            {EnemyType.Triangle, low_hp },
-            {EnemyType.Dot, low_hp},
-            {EnemyType.Square,medium_hp},
-            {EnemyType.Circle,medium_hp},
-            {EnemyType.Pentagon,high_hp},
-            {EnemyType.Rhombus,low_hp},
-            {EnemyType.Star,medium_hp},
-            {EnemyType.Hexagon,high_hp},
+            {EnemyType.Triangle, enemyData.low_hp },
+            {EnemyType.Dot, enemyData.low_hp},
+            {EnemyType.Square,enemyData.medium_hp},
+            {EnemyType.Circle,enemyData.medium_hp},
+            {EnemyType.Pentagon,enemyData.high_hp},
+            {EnemyType.Rhombus,enemyData.low_hp},
+            {EnemyType.Star,enemyData.medium_hp},
+            {EnemyType.Hexagon,enemyData.high_hp},
         };
-        float low_speed = 1;
-        float medium_speed = 2;
-        float high_speed = 3;
         SpeedDic = new Dictionary<EnemyType, float>
         {
-            {EnemyType.Triangle, medium_speed},
-            {EnemyType.Dot, high_speed},
-            {EnemyType.Square, medium_speed},
-            {EnemyType.Circle,medium_speed},
-            {EnemyType.Pentagon ,low_speed},
-            {EnemyType.Rhombus ,high_speed},
-            {EnemyType.Star,high_speed},
-            {EnemyType.Hexagon,low_speed},
+            {EnemyType.Triangle, enemyData.medium_speed},
+            {EnemyType.Dot, enemyData.high_speed},
+            {EnemyType.Square, enemyData.medium_speed },
+            {EnemyType.Circle,enemyData.medium_speed},
+            {EnemyType.Pentagon ,enemyData.low_speed},
+            {EnemyType.Rhombus ,enemyData.high_speed},
+            {EnemyType.Star,enemyData.high_speed},
+            {EnemyType.Hexagon,enemyData.low_speed},
         };
     }
 }
