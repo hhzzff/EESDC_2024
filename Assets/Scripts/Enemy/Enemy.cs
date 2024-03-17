@@ -37,7 +37,10 @@ public class Enemy : MonoBehaviour, IEnemy
         info.hp -= damage; 
         //Debug.Log(info.hp);
     }
-
+    public void Pushed(Vector2 direction,float mul)
+    {
+        rb.velocity+=direction*mul;
+    }
     public void Attack(int damage)
     {
 

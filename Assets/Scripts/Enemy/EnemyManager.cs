@@ -55,7 +55,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
                     y = Random.Range(up, up + 5);
             }
             // should be random
-            int randomValue = Random.Range(0, 4); // Éú³É0µ½3Ö®¼äµÄËæ»úÕûÊý
+            int randomValue = Random.Range(0, 4); // ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½3Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             Enemy newEnemy;
             switch (randomValue)
             {
@@ -109,13 +109,9 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         }
         return enemyInfos;
     }
-    public async void Push(Enemy enemy)
-    {
-
-    }
     public void Summon()
     {
-
+        
     }
     public async void Hatch(Vector2 pos,EnemyType type)
     {
@@ -123,9 +119,9 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         {
             Enemy newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity); 
             enemies.Add(newEnemy);
-            newEnemy.go2center = false;
-            //await Push(newEnemy);
-            newEnemy.go2center=true;
+            // random vector;
+            // value;
+            // newEnemy.Pushed(`,~)
         }
     }
 }

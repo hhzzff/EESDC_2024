@@ -12,7 +12,7 @@ public enum EnemyType
     Square,     //enemyData.medium hp enemyData.medium speed
     Circle,     //enemyData.medium hp enemyData.medium speed     split a dot
     Pentagon,   // create a dot
-    Rhombus,    // speed up felenemyData.lows after death
+    Rhombus,    // speed up fel enemyData.lows after death
     Star,       // create cloud forward  
     Hexagon,    //  enemyData.high hp    create two Rhombus when half hp
 }
