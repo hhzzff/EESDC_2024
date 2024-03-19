@@ -35,7 +35,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         if (cnt-- == 0)
         {
             GenerateEnemy();
-            cnt = 1500;
+            cnt = 100;
         }
 
     }
