@@ -9,7 +9,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     public Circle circle;
     public Dot dot;
     public Square square;
-  
+
     List<Enemy> enemies = new List<Enemy>();
     Vector3 rightUp;
     Vector3 leftDown;
@@ -39,9 +39,9 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         }
 
     }
-    void GenerateEnemy() 
+    void GenerateEnemy()
     {
-        int generateNum = (int)(Time.time % 10) + 1;  
+        int generateNum = (int)(Time.time % 10) + 1;
         float x, y;
         for (int i = 0; i < generateNum; i++)
         {
@@ -56,27 +56,27 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
                     y = Random.Range(up, up + 5);
             }
             // should be random
-            int randomValue = Random.Range(0, 4); // Éú³É0µ½3Ö®¼äµÄËæ»úÕûÊý
+            int randomValue = Random.Range(0, 4); // ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½3Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             Enemy newEnemy;
-            switch (randomValue)
-            {
-                case 0:
-                    newEnemy = Instantiate(triangle, new Vector3(x, y, 0), Quaternion.identity);
-                    break;
-                case 1:
-                    newEnemy = Instantiate(dot, new Vector3(x, y, 0), Quaternion.identity);
-                    break;
-                case 2:
-                    newEnemy = Instantiate(square, new Vector3(x, y, 0), Quaternion.identity);
-                    break;
-                case 3:
-                    newEnemy = Instantiate(circle, new Vector3(x, y, 0), Quaternion.identity);
-                    break;
-                default:
-                    newEnemy = null;
-                    break;
+            // switch (randomValue)
+            // {
+            // case 0:
+            newEnemy = Instantiate(triangle, new Vector3(x, y, 0), Quaternion.identity);
+            // break;
+            // case 1:
+            // newEnemy = Instantiate(dot, new Vector3(x, y, 0), Quaternion.identity);
+            // break;
+            // case 2:
+            // newEnemy = Instantiate(square, new Vector3(x, y, 0), Quaternion.identity);
+            // break;
+            // case 3:
+            // newEnemy = Instantiate(circle, new Vector3(x, y, 0), Quaternion.identity);
+            //         break;
+            //     default:
+            //         newEnemy = null;
+            //         break;
 
-            }
+            // }
             enemies.Add(newEnemy);
         }
     }
@@ -89,7 +89,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
             Destroy(enemy.gameObject);
         }
     }
-    void CheckHp()  
+    void CheckHp()
     {
         for (int i = enemies.Count - 1; i >= 0; i--)
         {
@@ -100,7 +100,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
             }
         }
     }
-    public List<EnemyInfo> GetEnemyList() 
+    public List<EnemyInfo> GetEnemyList()
     {
         List<EnemyInfo> enemyInfos = new List<EnemyInfo>();
         foreach (Enemy enemy in enemies)
@@ -111,11 +111,11 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     {
 
     }
-    public void Hatch(Vector2 pos,EnemyType type)
+    public void Hatch(Vector2 pos, EnemyType type)
     {
         if (type == EnemyType.Dot)
         {
-            Enemy newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity); 
+            Enemy newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
             enemies.Add(newEnemy);
         }
     }
