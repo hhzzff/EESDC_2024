@@ -9,14 +9,14 @@ public class Rhombus : Enemy
     {
         info.type = EnemyType.Rhombus;
         info.hp = Constant.HpDic[info.type];
-        speed_rate= Constant.SpeedDic[info.type];
+        speed_rate = Constant.SpeedDic[info.type];
     }
     private void Update()
-    {   
+    {
         Step2Center();
     }
     ~Rhombus()
     {
-        EnemyManager.GetInstance().SpeedUp();
+        // EnemyManager.GetInstance().SpeedUp();
     }
 }

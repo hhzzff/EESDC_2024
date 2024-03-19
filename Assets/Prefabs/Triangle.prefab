@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed_rate: 2
+  rb: {fileID: 0}
+  go2center: 1
 --- !u!60 &6684348900567108665
 PolygonCollider2D:
   m_ObjectHideFlags: 0
