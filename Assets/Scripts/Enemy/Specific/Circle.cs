@@ -9,11 +9,12 @@ public class Circle : Enemy
     {
         info.type=EnemyType.Circle;
         info.hp = Constant.HpDic[info.type];
+        Debug.Log(Constant.HpDic[info.type]);
         speed_rate = Constant.SpeedDic[info.type];
     }
     ~Circle()
     {
-        EnemyManager.GetInstance().Hatch(info.pos,EnemyType.Dot);
+        EnemyManager.GetInstance().Hatch(rb.position,EnemyType.Dot);
     }
     private void Update()
     {
