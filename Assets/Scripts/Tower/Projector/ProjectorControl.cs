@@ -48,8 +48,12 @@ public class ProjectorControl : MonoBehaviour
         {
             if (enemy.hp > 0)
             {
-                float t = (enemy.pos - (Vector2)transform.position).magnitude / shellData.speed[GetShellLevel()];
-                // predoctionG.transform.position = new Vector2(enemy.pos.x + enemy.vel.x * t, enemy.pos.y + enemy.vel.y * t);
+                // Debug.Log(Vector2.Angle((Vector2)transform.position - enemy.pos, enemy.vel) * Mathf.Rad2Deg);
+                float t = SolvePredictTime((enemy.pos - (Vector2)transform.position).magnitude,
+                    Mathf.Cos(Vector2.Angle((Vector2)transform.position - enemy.pos, enemy.vel) * Mathf.Deg2Rad),
+                    shellData.speed[GetShellLevel()] * shellData.speed[GetShellLevel()] / (enemy.vel.magnitude * enemy.vel.magnitude),
+                    enemy.vel.magnitude);
+                // float t = (enemy.pos - (Vector2)transform.position).magnitude / shellData.speed[GetShellLevel()];
                 RotateBatteryTo(Mathf.Atan2(
                     enemy.pos.y + enemy.vel.y * t - transform.position.y,
                     enemy.pos.x + enemy.vel.x * t - transform.position.x
@@ -57,6 +61,10 @@ public class ProjectorControl : MonoBehaviour
                 break;
             }
         }
+    }
+    float SolvePredictTime(float r, float cosA, float velRate2, float ven)
+    {
+        return (-r * cosA + r * Mathf.Sqrt(cosA * cosA + velRate2 - 1)) / ((velRate2 - 1) * ven);
     }
     void RotateBatteryTo(float angle, Vector2 dis)
     {
@@ -90,6 +98,7 @@ public class ProjectorControl : MonoBehaviour
     }
     IEnumerator Attack(Vector2 dis)
     {
+        predoctionG.transform.position = (Vector2)transform.position + dis;
         // batteryAnim.SetTrigger("Shoot");
         GameObject bullet = Instantiate(shell[GetShellLevel()], transform.position, Quaternion.AngleAxis(currentAngle + 90, Vector3.forward), bulletFa.transform);
         bullet.GetComponent<Rigidbody2D>().velocity = shellData.speed[GetShellLevel()] * (

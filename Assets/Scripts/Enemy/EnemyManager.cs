@@ -35,7 +35,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         if (cnt-- == 0)
         {
             GenerateEnemy();
-            cnt = 300;
+            cnt = 1500;
         }
 
     }
@@ -58,25 +58,25 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
             // should be random
             int randomValue = Random.Range(0, 4); // ����0��3֮����������
             Enemy newEnemy;
-            switch (randomValue)
-            {
-                case 0:
-                    newEnemy = Instantiate(triangle, new Vector3(x, y, 0), Quaternion.identity);
-                    break;
-                case 1:
-                    newEnemy = Instantiate(dot, new Vector3(x, y, 0), Quaternion.identity);
-                    break;
-                case 2:
-                    newEnemy = Instantiate(square, new Vector3(x, y, 0), Quaternion.identity);
-                    break;
-                case 3:
-                    newEnemy = Instantiate(circle, new Vector3(x, y, 0), Quaternion.identity);
-                    break;
-                default:
-                    newEnemy = null;
-                    break;
+            // switch (randomValue)
+            // {
+            // case 0:
+            newEnemy = Instantiate(triangle, new Vector3(x, y, 0), Quaternion.identity);
+            // break;
+            // case 1:
+            // newEnemy = Instantiate(dot, new Vector3(x, y, 0), Quaternion.identity);
+            // break;
+            // case 2:
+            // newEnemy = Instantiate(square, new Vector3(x, y, 0), Quaternion.identity);
+            // break;
+            // case 3:
+            // newEnemy = Instantiate(circle, new Vector3(x, y, 0), Quaternion.identity);
+            //         break;
+            //     default:
+            //         newEnemy = null;
+            //         break;
 
-            }
+            // }
             enemies.Add(newEnemy);
         }
     }
@@ -84,7 +84,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     {
         if (enemies.Contains(enemy))
         {
-            // Debug.Log("Enemy Dies");
+            Debug.Log("Enemy Dies");
             enemies.Remove(enemy);
             Destroy(enemy.gameObject);
         }
