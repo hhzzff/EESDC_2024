@@ -5,12 +5,10 @@ public enum TowerType
 {
     None,
     Defender,
-    Beacon,
 }
 public class TowerManager : SingletonMono<TowerManager>
 {
-    public GameObject towerPa, defender, beacon;
-    GameObject obj;
+    public GameObject towerPa, defender;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,16 +20,12 @@ public class TowerManager : SingletonMono<TowerManager>
     {
 
     }
-    public void CreateTower(TowerType towerType, Vector2 pos, Quaternion baseQuaternion, Quaternion? batQuaternion = null)
+    public void CreateTower(TowerType towerType, Vector2 pos, Vector2 dir)
     {
         switch (towerType)
         {
             case TowerType.Defender:
-                Instantiate(defender, pos, baseQuaternion, towerPa.transform);
-                break;
-            case TowerType.Beacon:
-                obj = Instantiate(beacon, pos, baseQuaternion, towerPa.transform);
-                obj.transform.Find("Battery").rotation = batQuaternion.Value;
+                Instantiate(defender, pos, Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.right, dir), Vector3.forward), towerPa.transform);
                 break;
         }
     }

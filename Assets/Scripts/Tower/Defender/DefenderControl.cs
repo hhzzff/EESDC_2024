@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class DefenderControl : MonoBehaviour
@@ -44,10 +45,14 @@ public class DefenderControl : MonoBehaviour
                 return 1;
             return 0;
         });
+        Debug.Log("sort finished");
         foreach (EnemyInfo enemy in enemyList)
         {
             if (enemy.hp > 0)
             {
+                // Debug.Log("EnemyPos:" + enemy.pos.x + ", " + enemy.pos.y);
+                // Debug.Log("EnemyVel:" + enemy.vel.x + ", " + enemy.vel.y);
+                // Debug.Log("CurrentAngle:" + currentAngle);
                 float t = (enemy.pos - (Vector2)transform.position).magnitude / laserData.speed[GetLaserLevel()];
                 // predoctionG.transform.position = new Vector2(enemy.pos.x + enemy.vel.x * t, enemy.pos.y + enemy.vel.y * t);
                 RotateBatteryTo(Mathf.Atan2(

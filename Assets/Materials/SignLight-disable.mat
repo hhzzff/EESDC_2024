@@ -46,7 +46,7 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _GlowColor: {r: 3.688605, g: 0.03574762, b: 0, a: 0}
+    - _GlowColor: {r: 9.082412, g: 0.08802098, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7789495426477214260
 MonoBehaviour:
