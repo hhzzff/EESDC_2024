@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEditor.PackageManager;
 using UnityEngine;
 public enum EnemyType
 {
@@ -20,7 +21,11 @@ public class Constant : SingletonMono<Constant>
 {
     public static Dictionary<EnemyType, int> HpDic;
     public static Dictionary<EnemyType, float> SpeedDic;
+    public static float speed_decay;
     public EnemyData enemyData;
+    public static float speed_range;
+    public static float speed_mul;
+    public static int speed_decay_freq;
 
     private void Start()
     {
@@ -46,5 +51,9 @@ public class Constant : SingletonMono<Constant>
             {EnemyType.Star,enemyData.high_speed},
             {EnemyType.Hexagon,enemyData.low_speed},
         };
+        speed_decay = enemyData.speed_decay;
+        speed_range = enemyData.speed_range;
+        speed_mul = enemyData.speed_mul;
+        speed_decay_freq=enemyData.speed_decay_freq;
     }
 }

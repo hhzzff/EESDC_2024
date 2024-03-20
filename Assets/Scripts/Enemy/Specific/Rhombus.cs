@@ -14,9 +14,10 @@ public class Rhombus : Enemy
     private void Update()
     {
         Step2Place();
+        TakeDamage(1);
     }
-    ~Rhombus()
+    void OnDestroy()
     {
-        // EnemyManager.GetInstance().SpeedUp();
+       EnemyManager.GetInstance().SpeedUp(rb.position);
     }
 }

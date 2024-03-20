@@ -11,4 +11,8 @@ public class EnemyData : ScriptableObject
     public float low_speed;
     public float medium_speed;
     public float high_speed;
+    public float speed_decay;
+    public float speed_range;
+    public float speed_mul;
+    public int speed_decay_freq;
 }

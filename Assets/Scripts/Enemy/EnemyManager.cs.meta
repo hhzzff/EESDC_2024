@@ -4,11 +4,11 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - enemyData: {fileID: 11400000, guid: d80de785a67ae8848907064174778464, type: 2}
   - triangle: {fileID: -360309384283484548, guid: 33201314a0ccb7048aac273cea76ada9, type: 3}
   - circle: {fileID: 3684605311903771390, guid: 32bd6cd3bf4d2e34a8a56453fd117a37, type: 3}
   - dot: {fileID: -8298398807519288496, guid: 7f2c04141d7e20b4c8ecefd13cbc782f, type: 3}
   - square: {fileID: 5318219821018363562, guid: 644c032805d58ca4fb219268087ddc8f, type: 3}
+  - rhombus: {fileID: 7076997798758751376, guid: 2f79ce773271c744083783f7f1f34528, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

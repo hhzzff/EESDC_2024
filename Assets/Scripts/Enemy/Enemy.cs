@@ -9,25 +9,34 @@ public class Enemy : MonoBehaviour, IEnemy
     public float speed_rate;
     public Rigidbody2D rb;
     public Vector2 target;
+    public int cnt;
     private void Start()
     {
         rb=GetComponent<Rigidbody2D>();
-        target=new Vector2(0,0);
+        cnt = Constant.speed_decay_freq;
     }
     public void Step2Place()
     {
-        Debug.Log("Target is "+target.x);
-        Vector2 r=new Vector2(target.x-transform.position.x,target.y-transform.position.y);
-        float norm = Mathf.Sqrt(r.x*r.x+r.y*r.y);
-        if (norm < 1.5)
+        cnt--;
+        if(cnt==0)
         {
-            rb.velocity = r * 3;
+            speed_rate *= Constant.speed_decay;
+            cnt = Constant.speed_decay_freq;
         }
-        else
+        if (rb.position.magnitude < 0.2)
         {
-            rb.AddForce(r/ norm * speed_rate);
-            speed_rate *= 0.9875f;
+            rb.velocity *= 0f;
+            return;
         }
+        Vector2 r = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
+        float norm = r.magnitude;
+        if (rb.position.magnitude>2f|norm<0.5f) 
+        {
+            SetTarget(new Vector2(0, 0)); 
+        }
+        if (speed_rate < 0.2)
+            speed_rate = 0.2f;
+        rb.AddForce(r/ norm * speed_rate);
     }
     public void SetTarget(Vector2 place)
     {
