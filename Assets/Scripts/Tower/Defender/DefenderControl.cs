@@ -45,7 +45,7 @@ public class DefenderControl : MonoBehaviour
                 return 1;
             return 0;
         });
-        Debug.Log("sort finished");
+        //Debug.Log("sort finished");
         foreach (EnemyInfo enemy in enemyList)
         {
             if (enemy.hp > 0)

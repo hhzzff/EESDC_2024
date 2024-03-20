@@ -14,6 +14,6 @@ public class Dot : Enemy
     }
     private void Update()
     {
-        Step2Center();
+        Step2Place();
     }
 }
