@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeaconControl : MonoBehaviour
+public class BeaconControl : TowerBase
 {
     public int chargingState;
     public GameObject lightSource;

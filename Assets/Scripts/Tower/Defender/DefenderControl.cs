@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-public class DefenderControl : MonoBehaviour
+public class DefenderControl : TowerBase
 {
     public DefenderData defenderData;
     public LaserData laserData;
@@ -53,7 +53,10 @@ public class DefenderControl : MonoBehaviour
                 // Debug.Log("EnemyPos:" + enemy.pos.x + ", " + enemy.pos.y);
                 // Debug.Log("EnemyVel:" + enemy.vel.x + ", " + enemy.vel.y);
                 // Debug.Log("CurrentAngle:" + currentAngle);
-                float t = (enemy.pos - (Vector2)transform.position).magnitude / laserData.speed[GetLaserLevel()];
+                float t = SolvePredictTime((enemy.pos - (Vector2)transform.position).magnitude,
+                    Mathf.Cos(Vector2.Angle((Vector2)transform.position - enemy.pos, enemy.vel) * Mathf.Deg2Rad),
+                    laserData.speed[GetLaserLevel()] * laserData.speed[GetLaserLevel()] / (enemy.vel.magnitude * enemy.vel.magnitude),
+                    enemy.vel.magnitude);
                 // predoctionG.transform.position = new Vector2(enemy.pos.x + enemy.vel.x * t, enemy.pos.y + enemy.vel.y * t);
                 RotateBatteryTo(Mathf.Atan2(
                     enemy.pos.y + enemy.vel.y * t - transform.position.y,
@@ -62,6 +65,10 @@ public class DefenderControl : MonoBehaviour
                 break;
             }
         }
+    }
+    float SolvePredictTime(float r, float cosA, float velRate2, float ven)
+    {
+        return (-r * cosA + r * Mathf.Sqrt(cosA * cosA + velRate2 - 1)) / ((velRate2 - 1) * ven);
     }
     void RotateBatteryTo(float angle)
     {

@@ -7,9 +7,9 @@ public class Square : Enemy
 {
     Square()
     {
-        info.type=EnemyType.Square;
-        info.hp = Constant.HpDic[info.type];
+        info.type = EnemyType.Square;
         speed_rate = Constant.SpeedDic[info.type];
+        info.hp = Constant.HpDic[info.type];
     }
     private void Update()
     {

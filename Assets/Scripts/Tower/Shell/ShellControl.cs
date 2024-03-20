@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShellControl : MonoBehaviour
 {
     public ShellData shellData;
+    Animator animator;
     public int level;
     public float lifeTimeMax;
     private float lifeTime = 0;
@@ -16,6 +17,7 @@ public class ShellControl : MonoBehaviour
         shell = transform.Find("Shell").gameObject;
         shockWave = transform.Find("ShockWave").gameObject;
         rbShell = GetComponent<Rigidbody2D>();
+        animator = shell.GetComponent<Animator>();
     }
     void Update()
     {
@@ -29,13 +31,17 @@ public class ShellControl : MonoBehaviour
     void Explode()
     {
         rbShell.velocity = Vector3.zero;
-        shell.SetActive(false);
+        animator.SetTrigger("Disappear");
         shockWave.SetActive(true);
     }
     IEnumerator DelayDestroy()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.6f);
         Destroy(gameObject);
+    }
+    public void Disappear()
+    {
+        shell.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

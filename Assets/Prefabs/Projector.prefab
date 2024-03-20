@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad835d54ea19c4b937107c1d2aebb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   projectorData: {fileID: 11400000, guid: 251b181669ba6e945a40e4043a2ad79e, type: 2}
   shellData: {fileID: 11400000, guid: 473dc586f0ccb7340b860dbaefb82de1, type: 2}
   currentAngle: 0
@@ -278,7 +279,7 @@ MonoBehaviour:
   - {x: -0.2640121, y: 0.17463732, z: 0}
   m_ShapePathHash: -361052697
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1308
+  m_InstanceId: -1272
   m_LocalBounds:
     m_Center: {x: -0.000019431114, y: -0.06366286, z: 0}
     m_Extent: {x: 0.30512246, y: 0.23830017, z: 0}

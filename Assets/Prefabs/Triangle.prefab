@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 595506679588946710}
   - component: {fileID: -360309384283484548}
   - component: {fileID: 6684348900567108665}
+  - component: {fileID: 6947971890563790280}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Enemy
@@ -181,3 +182,30 @@ PolygonCollider2D:
       - {x: -0.55214846, y: -0.28230372}
       - {x: 0.5619645, y: -0.2870739}
   m_UseDelaunayMesh: 0
+--- !u!50 &6947971890563790280
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5232955202604781213}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // using System.Numerics;
 using UnityEngine;
 
-public class ProjectorControl : MonoBehaviour
+public class ProjectorControl : TowerBase
 {
     public ProjectorData projectorData;
     public ShellData shellData;
