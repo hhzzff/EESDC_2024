@@ -83,7 +83,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     {
         if (enemies.Contains(enemy))
         {
-            Debug.Log("Enemy Dies");
+            //Debug.Log("Enemy Dies");
             enemies.Remove(enemy);
             Destroy(enemy.gameObject);
         }
@@ -113,15 +113,16 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     {
         
     }
-    public async void Hatch(Vector2 pos,EnemyType type)
+    public void Hatch(Vector2 pos,EnemyType type,Vector2 vel)
     {
         if (type == EnemyType.Dot)
         {
-            Enemy newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity); 
+            Dot newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity).GetComponent<Dot>();
+            Vector2 direction = new Vector2(Random.value,Random.value);
+            float val = 5;
+            newEnemy.SetTarget(direction * val);
+            Debug.Log("direction is "+ newEnemy.target);
             enemies.Add(newEnemy);
-            // random vector;
-            // value;
-            // newEnemy.Pushed(`,~)
         }
     }
 }
