@@ -9,15 +9,15 @@ public class Circle : Enemy
     {
         info.type=EnemyType.Circle;
         info.hp = Constant.HpDic[info.type];
-        Debug.Log(Constant.HpDic[info.type]);
         speed_rate = Constant.SpeedDic[info.type];
     }
-    ~Circle()
+    void OnDestroy()
     {
-        EnemyManager.GetInstance().Hatch(rb.position,EnemyType.Dot);
+        EnemyManager.GetInstance().Hatch(rb.position,EnemyType.Dot,rb.velocity);
     }
     private void Update()
     {
-        Step2Center();
+        Step2Place();
+        TakeDamage(1);
     }
 }
