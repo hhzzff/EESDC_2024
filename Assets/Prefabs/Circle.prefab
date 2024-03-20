@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6277691361808504650}
   - component: {fileID: 3684605311903771390}
   - component: {fileID: 3640719949579886380}
-  - component: {fileID: 3460315058466763585}
+  - component: {fileID: 2065699999192724213}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Enemy
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed_rate: 2
   rb: {fileID: 0}
-  go2center: 1
+  going_center: 1
 --- !u!58 &3640719949579886380
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!50 &3460315058466763585
+--- !u!50 &2065699999192724213
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -110,7 +110,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!1 &7946478073436309756
 GameObject:

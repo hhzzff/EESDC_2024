@@ -113,15 +113,24 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     {
 
     }
+<<<<<<< HEAD
     public async void Hatch(Vector2 pos, EnemyType type)
     {
         if (type == EnemyType.Dot)
         {
             Enemy newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity);
+=======
+    public void Hatch(Vector2 pos,EnemyType type,Vector2 vel)
+    {
+        if (type == EnemyType.Dot)
+        {
+            Dot newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity).GetComponent<Dot>();
+            Vector2 direction = new Vector2(Random.value,Random.value);
+            float val = 5;
+            newEnemy.SetTarget(direction * val);
+            Debug.Log("direction is "+ newEnemy.target);
+>>>>>>> ae0913a825937bc2818ff7ebede866925d286d15
             enemies.Add(newEnemy);
-            // random vector;
-            // value;
-            // newEnemy.Pushed(`,~)
         }
     }
 }

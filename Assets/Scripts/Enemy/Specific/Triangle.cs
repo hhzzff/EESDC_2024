@@ -13,6 +13,6 @@ public class Triangle : Enemy
     }
     private void Update()
     {   
-        Step2Center();
+        Step2Place();
     }
 }
