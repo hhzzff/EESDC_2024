@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Projector
     originalName: 
-    pivot: {x: 0.5, y: -0.033898305}
+    pivot: {x: 0.5, y: -0.03773585}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,7 +129,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 60
-      height: 59
+      height: 53
     spriteID: 7f4f4837e2cb7ad49b8eae96933d3c19
     spriteBone: []
     spriteOutline: []
@@ -154,7 +154,7 @@ ScriptedImporter:
         x: 2
         y: 2
         width: 60
-        height: 59
+        height: 53
       spriteId: 7f4f4837e2cb7ad49b8eae96933d3c19
     linkedCells: []
     parentIndex: -1

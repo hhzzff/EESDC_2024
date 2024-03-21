@@ -39,10 +39,6 @@ public class ShellControl : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         Destroy(gameObject);
     }
-    public void Disappear()
-    {
-        shell.SetActive(false);
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Debug.Log("damage?");
