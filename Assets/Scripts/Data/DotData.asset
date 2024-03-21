@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a657a5733d2e724d99186de4b585f31, type: 3}
   m_Name: DotData
   m_EditorClassIdentifier: 
-  hp: 0
-  speed: 0
-  speed_decay: 0
+  hp: 100
+  speed: 2
+  speed_decay: 0.9
