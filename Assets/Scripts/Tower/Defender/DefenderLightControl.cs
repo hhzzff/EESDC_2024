@@ -9,6 +9,7 @@ public class DefenderLightControl : MonoBehaviour
     Color CurrentLitColor, TargetLitColor;
     public LayerMask shaderLayer;
     bool[] signLightEnabled = { false, false };
+    public string debugstr;
     void Start()
     {
         entity = transform.GetChild(0).gameObject;
@@ -27,8 +28,8 @@ public class DefenderLightControl : MonoBehaviour
     }
     void CheckGlobalLightDirection()
     {
-        //Debug.Log("transform.pos: " + entity.transform.position);
-        //Debug.Log("Globallight.pos: " + GlobalLightControl.GetInstance().transform.position);
+        // Debug.Log("transform.pos: " + entity.transform.position);
+        // Debug.Log("Globallight.pos: " + GlobalLightControl.GetInstance().transform.position);
         if (!Physics2D.Raycast(
             entity.transform.position,
             GlobalLightControl.GetInstance().transform.position - entity.transform.position,
@@ -41,15 +42,29 @@ public class DefenderLightControl : MonoBehaviour
     void CheckLightSourceDirection()
     {
         GameObject[] lightSourceList = GameObject.FindGameObjectsWithTag("LightSource");
+        // Debug.Log(lightSourceList.Length);
         foreach (GameObject lightSource in lightSourceList)
         {
-            if (!Physics2D.Raycast(
+            if (!lightSource.transform.parent.parent.GetComponent<BeaconControl>().lightEnabled)
+                continue;
+            if (signLightEnabled[1])
+                break;
+            signLightEnabled[1] = true;
+            foreach (RaycastHit2D raycastHit2D in Physics2D.RaycastAll(
                 entity.transform.position,
                 lightSource.transform.position - entity.transform.position,
-                GlobalLightControl.GetInstance().rotateRadius * 2,
+                ((Vector2)(lightSource.transform.position - entity.transform.position)).magnitude,
                 shaderLayer))
             {
-                signLightEnabled[1] = true;
+                if (raycastHit2D.collider.transform != lightSource.transform.parent
+                    && raycastHit2D.transform.parent == lightSource.transform.parent.parent)
+                {
+                    continue;
+                }
+                debugstr = raycastHit2D.collider.GetType().ToString();
+                // Debug.Log(raycastHit2D.collider);
+                signLightEnabled[1] = false;
+                break;
             }
         }
     }

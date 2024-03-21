@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class GamingUIControl : SingletonMono<GamingUIControl>
 {
-    public Button defenderButton;
     public Slider healthBar;
     public TextMeshProUGUI healthText, energyText, scoreText;
     public AnimationCurve animationCurve;
@@ -62,5 +61,9 @@ public class GamingUIControl : SingletonMono<GamingUIControl>
     public void BeaconButtonDown()
     {
         PlayerControl.GetInstance().holdingBeacon = true;
+    }
+    public void ProjectorButtonDown()
+    {
+        PlayerControl.GetInstance().holdingProjector = true;
     }
 }

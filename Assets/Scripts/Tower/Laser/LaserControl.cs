@@ -7,10 +7,13 @@ public class LaserControl : MonoBehaviour
     public LaserData laserData;
     public int level;
     private float lifeTime = 0;
+    Animator animator;
+    Collider2D collideBox;
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
+        collideBox = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -22,12 +25,15 @@ public class LaserControl : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("damage?");
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("damage!");
             collision.GetComponent<Enemy>().TakeDamage(laserData.damage[level]);
-            Destroy(gameObject);
+            collideBox.enabled = false;
+            animator.SetTrigger("Disappear");
         }
+    }
+    public void Disappear()
+    {
+        Destroy(gameObject);
     }
 }
