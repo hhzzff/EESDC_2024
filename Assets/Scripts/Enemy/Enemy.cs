@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour, IEnemy
     public void TakeDamage(int damage)
     {
         //FlashWhite();
-        info.hp -= damage; 
+        info.hp -= damage;
         //Debug.Log(info.hp);
     }
     public void Pushed(Vector2 direction, float val)
@@ -64,6 +64,6 @@ public class Enemy : MonoBehaviour, IEnemy
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
-      // Debug.Log("Trigger with obstacle detected!");
+        // Debug.Log("Trigger with obstacle detected!");
     }
 }

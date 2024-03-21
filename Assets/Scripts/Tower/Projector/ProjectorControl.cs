@@ -3,7 +3,7 @@ using System.Collections.Generic;
 // using System.Numerics;
 using UnityEngine;
 
-public class ProjectorControl : MonoBehaviour
+public class ProjectorControl : TowerBase
 {
     public ProjectorData projectorData;
     public ShellData shellData;
@@ -98,7 +98,7 @@ public class ProjectorControl : MonoBehaviour
     }
     IEnumerator Attack(Vector2 dis)
     {
-        predoctionG.transform.position = (Vector2)transform.position + dis;
+        // predoctionG.transform.position = (Vector2)transform.position + dis;
         // batteryAnim.SetTrigger("Shoot");
         GameObject bullet = Instantiate(shell[GetShellLevel()], transform.position, Quaternion.AngleAxis(currentAngle + 90, Vector3.forward), bulletFa.transform);
         bullet.GetComponent<Rigidbody2D>().velocity = shellData.speed[GetShellLevel()] * (
