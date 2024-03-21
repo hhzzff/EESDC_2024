@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class Hexagon : Enemy
+public class Circle : Enemy
 {
-    public bool given_birth;
-    Hexagon()
+    new void Start()
     {
-        info.type=EnemyType.Hexagon;
+        base.Start();
+        info.type = EnemyType.Circle;
         info.hp = Constant.HpDic[info.type];
-        speed_rate = Constant.SpeedDic[info.type];
-        given_birth = false;
+        speed = Constant.SpeedDic[info.type];
+    }
+    void OnDestroy()
+    {
+        EnemyManager.GetInstance().Hatch(rb.position, EnemyType.Dot);
     }
     private void Update()
     {
         Step2Place();
-        if(!given_birth&info.hp< 0.5*Constant.HpDic[info.type])
-            EnemyManager.GetInstance().Hatch()
-        
+        TakeDamage(1);
     }
 }

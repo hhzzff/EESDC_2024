@@ -6,22 +6,22 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IEnemy
 {
     public EnemyInfo info;
-    public float speed_rate;
+    public float speed;
     public Rigidbody2D rb;
     public Vector2 target;
     public int cnt;
-    private void Start()
+    protected void Start()
     {
         rb=GetComponent<Rigidbody2D>();
-        cnt = Constant.speed_decay_freq;
+        cnt = Constant.decay_freq;
     }
     public void Step2Place()
     {
         cnt--;
         if(cnt==0)
         {
-            speed_rate *= Constant.speed_decay;
-            cnt = Constant.speed_decay_freq;
+            speed *= Constant.speed_decay;
+            cnt = Constant.decay_freq;
         }
         if (rb.position.magnitude < 0.2)
         {
@@ -34,9 +34,9 @@ public class Enemy : MonoBehaviour, IEnemy
         {
             SetTarget(new Vector2(0, 0)); 
         }
-        if (speed_rate < 0.2)
-            speed_rate = 0.2f;
-        rb.AddForce(r/ norm * speed_rate);
+        if (speed < 0.2)
+            speed = 0.2f;
+        rb.AddForce(r/ norm * speed);
     }
     public void SetTarget(Vector2 place)
     {

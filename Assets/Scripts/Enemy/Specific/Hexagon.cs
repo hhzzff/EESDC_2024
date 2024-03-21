@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class Circle : Enemy
+public class Hexagon : Enemy
 {
-    Circle()
+    new void Start()
     {
-        info.type = EnemyType.Circle;
+        base.Start();
+        info.type = EnemyType.Hexagon;
         info.hp = Constant.HpDic[info.type];
-        speed_rate = Constant.SpeedDic[info.type];
-    }
-    void OnDestroy()
-    {
-        //EnemyManager.GetInstance().Hatch(rb.position, EnemyType.Dot);
+        speed = Constant.SpeedDic[info.type];
     }
     private void Update()
     {

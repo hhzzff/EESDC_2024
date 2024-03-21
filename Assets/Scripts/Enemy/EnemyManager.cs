@@ -118,7 +118,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         {
             if ((enemy.rb.position-pos).magnitude<Constant.speed_range)
             {
-                enemy.speed_rate*=Constant.speed_mul;
+                enemy.speed*=Constant.speed_mul;
             }
         }
     }

@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Square : Enemy
 {
-    Square()
+    new void Start()
     {
+        base.Start();
         info.type=EnemyType.Square;
         info.hp = Constant.HpDic[info.type];
-        speed_rate = Constant.SpeedDic[info.type];
+        speed = Constant.SpeedDic[info.type];
     }
     private void Update()
     {

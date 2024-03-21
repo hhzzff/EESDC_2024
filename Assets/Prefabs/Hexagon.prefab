@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7535136344481088851}
   - component: {fileID: 2234424771486953282}
   - component: {fileID: 4922250686980381164}
+  - component: {fileID: 2038760127723031716}
   m_Layer: 0
   m_Name: Hexagon
   m_TagString: Enemy
@@ -164,3 +165,19 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
   m_UseDelaunayMesh: 0
+--- !u!114 &2038760127723031716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596280748861790252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bfd43e4462c8a24ebf1b9e213bfd2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  rb: {fileID: 0}
+  target: {x: 0, y: 0}
+  cnt: 0

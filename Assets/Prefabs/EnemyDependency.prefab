@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5357315078355224180
+--- !u!1 &8298609022269645432
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3880474477090289458}
-  - component: {fileID: 3186735630338243198}
-  - component: {fileID: 1435996881710275814}
+  - component: {fileID: 6457344770004498275}
+  - component: {fileID: 4571907390530891832}
+  - component: {fileID: 5186218165574820162}
   m_Layer: 0
-  m_Name: EnemyResource
+  m_Name: EnemyDependency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3880474477090289458
+--- !u!4 &6457344770004498275
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5357315078355224180}
+  m_GameObject: {fileID: 8298609022269645432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5237696, y: -1.5021445, z: -0.0061470084}
@@ -33,13 +33,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3186735630338243198
+--- !u!114 &4571907390530891832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5357315078355224180}
+  m_GameObject: {fileID: 8298609022269645432}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 782bc383ecb71534e8b5dfde987d432e, type: 3}
@@ -50,23 +50,24 @@ MonoBehaviour:
   dot: {fileID: -8298398807519288496, guid: 7f2c04141d7e20b4c8ecefd13cbc782f, type: 3}
   square: {fileID: 5318219821018363562, guid: 644c032805d58ca4fb219268087ddc8f, type: 3}
   rhombus: {fileID: 7076997798758751376, guid: 2f79ce773271c744083783f7f1f34528, type: 3}
---- !u!114 &1435996881710275814
+--- !u!114 &5186218165574820162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5357315078355224180}
+  m_GameObject: {fileID: 8298609022269645432}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a7acda965abb924f8262f746a15a41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dotData: {fileID: 0}
-  circleData: {fileID: 0}
-  hexagonData: {fileID: 0}
-  rhombusData: {fileID: 0}
-  squareData: {fileID: 0}
-  triangleData: {fileID: 0}
-  pentagonData: {fileID: 0}
-  starData: {fileID: 0}
+  dotData: {fileID: 11400000, guid: 2c1b15732d81706458ed1fedc3f17526, type: 2}
+  circleData: {fileID: 11400000, guid: 22eb82e5ddf240940a58b5b6bafa9044, type: 2}
+  hexagonData: {fileID: 11400000, guid: 79932456fbb07204aad182cd1b9009cf, type: 2}
+  rhombusData: {fileID: 11400000, guid: e2778f6a0b6e43844a9a414bafdce7b8, type: 2}
+  squareData: {fileID: 11400000, guid: c9e013a9e6b0e594e9c3010db50c69b1, type: 2}
+  triangleData: {fileID: 11400000, guid: b8be0b080ea165541936577df5b3bf1f, type: 2}
+  pentagonData: {fileID: 11400000, guid: 6142436b25ad999429d6fe0eaa45c958, type: 2}
+  starData: {fileID: 11400000, guid: 782e151ccc5867348a1f69b0c87b9eb6, type: 2}
+  enemyData: {fileID: 11400000, guid: d104f82e84e1dc84581b43a2fd37fdc3, type: 2}
