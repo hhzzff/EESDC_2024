@@ -24,7 +24,7 @@ public class Constant : SingletonMono<Constant>
     public NormalEnemy dotData;
     public NormalEnemy circleData;
     public NormalEnemy hexagonData;
-    public RhombusData rhombusData;
+    public NormalEnemy rhombusData;
     public NormalEnemy squareData;
     public NormalEnemy triangleData;
     public NormalEnemy pentagonData;
@@ -32,6 +32,9 @@ public class Constant : SingletonMono<Constant>
     public EnemyData enemyData;
     public static Dictionary<EnemyType, int> HpDic;
     public static Dictionary<EnemyType, float> SpeedDic;
+    public static Dictionary<EnemyType, int> DamageDic;
+    public static Dictionary<EnemyType, int> ScoreDic;
+    public static Dictionary<EnemyType, int> EnergyDic;
     public static int decay_freq;
     public static float speed_decay;
     public static float speed_range;
@@ -61,10 +64,43 @@ public class Constant : SingletonMono<Constant>
             {EnemyType.Star,starData.speed},
             {EnemyType.Hexagon,hexagonData.speed},
         };
+        DamageDic = new Dictionary<EnemyType, int>
+        {
+            {EnemyType.Triangle, triangleData.damage},
+            {EnemyType.Dot, dotData.damage},
+            {EnemyType.Square, squareData.damage },
+            {EnemyType.Circle,circleData.damage},
+            {EnemyType.Pentagon ,pentagonData.damage},
+            {EnemyType.Rhombus ,rhombusData.damage},
+            {EnemyType.Star,starData.damage},
+            {EnemyType.Hexagon,hexagonData.damage},
+        };
+        ScoreDic = new Dictionary<EnemyType, int>
+        {
+            {EnemyType.Triangle, triangleData.reward_score},
+            {EnemyType.Dot, dotData.reward_score},
+            {EnemyType.Square, squareData.reward_score },
+            {EnemyType.Circle,circleData.reward_score},
+            {EnemyType.Pentagon ,pentagonData.reward_score},
+            {EnemyType.Rhombus ,rhombusData.reward_score},
+            {EnemyType.Star,starData.reward_score},
+            {EnemyType.Hexagon,hexagonData.reward_score},
+        };
+        EnergyDic = new Dictionary<EnemyType, int>
+        {
+            {EnemyType.Triangle, triangleData.reward_energy},
+            {EnemyType.Dot, dotData.reward_energy},
+            {EnemyType.Square, squareData.reward_energy },
+            {EnemyType.Circle,circleData.reward_energy},
+            {EnemyType.Pentagon ,pentagonData.reward_energy},
+            {EnemyType.Rhombus ,rhombusData.reward_energy},
+            {EnemyType.Star,starData.reward_energy},
+            {EnemyType.Hexagon,hexagonData.reward_energy},
+        };
+
         speed_decay = enemyData.speed_decay;
         decay_freq = enemyData.decay_freq;
-        speed_range = rhombusData.speed_range;
-        speed_mul = rhombusData.speed_mul;
-        Debug.Log("haha");
+        speed_range = enemyData.rhombus_speed_range;
+        speed_mul = enemyData.rhombus_speed_mul;
     }
 }

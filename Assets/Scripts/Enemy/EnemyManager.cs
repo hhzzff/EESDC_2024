@@ -9,6 +9,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     public Dot dot;
     public Square square;
     public Rhombus rhombus;
+    private BaseControl base_control;
     List<Enemy> enemies = new List<Enemy>();
     Vector3 rightUp;
     Vector3 leftDown;
@@ -19,6 +20,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     int cnt = 0;
     void Start()
     {
+        base_control = GetComponent<BaseControl>();
         rightUp = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
         leftDown = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
         right = rightUp.x;
@@ -86,8 +88,20 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         if (enemies.Contains(enemy))
         {
             // Debug.Log("Enemy Dies");
+            if (enemy.info.type==EnemyType.Circle)
+            {
+                Hatch(enemy.rb.position, EnemyType.Dot);
+            }
+            if(enemy.info.type==EnemyType.Rhombus)
+            {
+                SpeedUp(enemy.rb.position);
+            }
+            Debug.Log("score"+enemy.score);
+            base_control.AddEnergy(enemy.energy);
+            //base_control.AddScore(enemy.score);
             enemies.Remove(enemy);
             Destroy(enemy.gameObject);
+            
         }
     }
     void CheckHp()

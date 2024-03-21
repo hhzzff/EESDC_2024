@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   speed: 2
-  speed_decay: 0.9
+  damage: 1
+  reward_score: 1
+  reward_energy: 1
