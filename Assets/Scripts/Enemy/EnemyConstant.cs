@@ -1,8 +1,11 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEditor.PackageManager;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 public enum EnemyType
 {
@@ -18,33 +21,50 @@ public enum EnemyType
 }
 public class Constant : SingletonMono<Constant>
 {
+    public NormalEnemy dotData;
+    public NormalEnemy circleData;
+    public NormalEnemy hexagonData;
+    public RhombusData rhombusData;
+    public NormalEnemy squareData;
+    public NormalEnemy triangleData;
+    public NormalEnemy pentagonData;
+    public NormalEnemy starData;
+    public EnemyData enemyData;
     public static Dictionary<EnemyType, int> HpDic;
     public static Dictionary<EnemyType, float> SpeedDic;
-    public EnemyData enemyData;
+    public static int decay_freq;
+    public static float speed_decay;
+    public static float speed_range;
+    public static float speed_mul;
 
     private void Start()
     {
         HpDic = new Dictionary<EnemyType, int>
         {
-            {EnemyType.Triangle, enemyData.low_hp },
-            {EnemyType.Dot, enemyData.low_hp},
-            {EnemyType.Square,enemyData.medium_hp},
-            {EnemyType.Circle,enemyData.medium_hp},
-            {EnemyType.Pentagon,enemyData.high_hp},
-            {EnemyType.Rhombus,enemyData.low_hp},
-            {EnemyType.Star,enemyData.medium_hp},
-            {EnemyType.Hexagon,enemyData.high_hp},
+            {EnemyType.Triangle, triangleData.hp },
+            {EnemyType.Dot, dotData.hp},
+            {EnemyType.Square,squareData.hp},
+            {EnemyType.Circle,circleData.hp},
+            {EnemyType.Pentagon,pentagonData.hp},
+            {EnemyType.Rhombus,rhombusData.hp},
+            {EnemyType.Star,starData.hp},
+            {EnemyType.Hexagon,hexagonData.hp},
         };
         SpeedDic = new Dictionary<EnemyType, float>
         {
-            {EnemyType.Triangle, enemyData.medium_speed},
-            {EnemyType.Dot, enemyData.high_speed},
-            {EnemyType.Square, enemyData.medium_speed },
-            {EnemyType.Circle,enemyData.medium_speed},
-            {EnemyType.Pentagon ,enemyData.low_speed},
-            {EnemyType.Rhombus ,enemyData.high_speed},
-            {EnemyType.Star,enemyData.high_speed},
-            {EnemyType.Hexagon,enemyData.low_speed},
+            {EnemyType.Triangle, triangleData.speed},
+            {EnemyType.Dot, dotData.speed},
+            {EnemyType.Square, squareData.speed },
+            {EnemyType.Circle,circleData.speed},
+            {EnemyType.Pentagon ,pentagonData.speed},
+            {EnemyType.Rhombus ,rhombusData.speed},
+            {EnemyType.Star,starData.speed},
+            {EnemyType.Hexagon,hexagonData.speed},
         };
+        speed_decay = enemyData.speed_decay;
+        decay_freq = enemyData.decay_freq;
+        speed_range = rhombusData.speed_range;
+        speed_mul = rhombusData.speed_mul;
+        Debug.Log("haha");
     }
 }

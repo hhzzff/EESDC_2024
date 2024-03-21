@@ -8,7 +8,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     public Circle circle;
     public Dot dot;
     public Square square;
-
+    public Rhombus rhombus;
     List<Enemy> enemies = new List<Enemy>();
     Vector3 rightUp;
     Vector3 leftDown;
@@ -55,7 +55,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
                     y = Random.Range(up, up + 5);
             }
             // should be random
-            int randomValue = Random.Range(0, 4); // ����0��3֮����������
+            int randomValue = Random.Range(0, 5); // ����0��3֮����������
             Enemy newEnemy;
             switch (randomValue)
             {
@@ -71,10 +71,12 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
                 case 3:
                     newEnemy = Instantiate(circle, new Vector3(x, y, 0), Quaternion.identity);
                     break;
+                case 4:
+                    newEnemy = Instantiate(rhombus, new Vector3(x, y, 0), Quaternion.identity);
+                    break;
                 default:
                     newEnemy = null;
                     break;
-
             }
             enemies.Add(newEnemy);
         }
@@ -109,19 +111,23 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         }
         return enemyInfos;
     }
-    public void Summon()
+    public void SpeedUp(Vector2 pos)
     {
-
+        foreach (Enemy enemy in enemies)
+        {
+            if ((enemy.rb.position-pos).magnitude<Constant.speed_range)
+            {
+                enemy.speed*=Constant.speed_mul;
+            }
+        }
     }
-    public void Hatch(Vector2 pos, EnemyType type, Vector2 vel)
+    public void Hatch(Vector2 pos,EnemyType type)
     {
         if (type == EnemyType.Dot)
         {
             Dot newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity).GetComponent<Dot>();
-            Vector2 direction = new Vector2(Random.value, Random.value);
-            float val = 5;
-            newEnemy.SetTarget(direction * val);
-            // Debug.Log("direction is " + newEnemy.target);
+            Vector2 target = new Vector2(Random.Range(pos.x-1f,pos.x+1f),Random.Range(pos.y-1,pos.y+1));
+            newEnemy.SetTarget(target);
             enemies.Add(newEnemy);
         }
     }

@@ -5,18 +5,20 @@ using UnityEngine;
 
 public class Rhombus : Enemy
 {
-    Rhombus()
+    new void Start()
     {
+        base.Start();
         info.type = EnemyType.Rhombus;
         info.hp = Constant.HpDic[info.type];
-        speed_rate = Constant.SpeedDic[info.type];
+        speed = Constant.SpeedDic[info.type];
     }
     private void Update()
     {
         Step2Place();
+        TakeDamage(1);
     }
-    ~Rhombus()
+    void OnDestroy()
     {
-        // EnemyManager.GetInstance().SpeedUp();
+       EnemyManager.GetInstance().SpeedUp(rb.position);
     }
 }

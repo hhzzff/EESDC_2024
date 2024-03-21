@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c60bad57fe1f340a2b10e71b0e297f, type: 3}
-  m_Name: EnemyData
+  m_Script: {fileID: 11500000, guid: 1a657a5733d2e724d99186de4b585f31, type: 3}
+  m_Name: PentagonData
   m_EditorClassIdentifier: 
-  decay_freq: 30
+  hp: 100
+  speed: 2
   speed_decay: 0.9

@@ -6,11 +6,12 @@ using UnityEngine;
 
 public class Dot : Enemy
 {
-    Dot()
+    new void Start()
     {
+        base.Start();
         info.type=EnemyType.Dot;
         info.hp = Constant.HpDic[info.type];
-        speed_rate = Constant.SpeedDic[info.type];
+        speed = Constant.SpeedDic[info.type];
     }
     private void Update()
     {

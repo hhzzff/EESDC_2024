@@ -4,7 +4,15 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - enemyData: {fileID: 11400000, guid: d80de785a67ae8848907064174778464, type: 2}
+  - dotData: {fileID: 11400000, guid: 2c1b15732d81706458ed1fedc3f17526, type: 2}
+  - circleData: {fileID: 11400000, guid: 22eb82e5ddf240940a58b5b6bafa9044, type: 2}
+  - hexagonData: {fileID: 11400000, guid: 79932456fbb07204aad182cd1b9009cf, type: 2}
+  - rhombusData: {fileID: 11400000, guid: e2778f6a0b6e43844a9a414bafdce7b8, type: 2}
+  - squareData: {fileID: 11400000, guid: c9e013a9e6b0e594e9c3010db50c69b1, type: 2}
+  - triangleData: {fileID: 11400000, guid: b8be0b080ea165541936577df5b3bf1f, type: 2}
+  - pentagonData: {fileID: 11400000, guid: 6142436b25ad999429d6fe0eaa45c958, type: 2}
+  - starData: {fileID: 11400000, guid: 782e151ccc5867348a1f69b0c87b9eb6, type: 2}
+  - enemyData: {fileID: 11400000, guid: d104f82e84e1dc84581b43a2fd37fdc3, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

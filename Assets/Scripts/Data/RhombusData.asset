@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c60bad57fe1f340a2b10e71b0e297f, type: 3}
-  m_Name: EnemyData
+  m_Script: {fileID: 11500000, guid: caaeda1788743af408ed6ba23c704529, type: 3}
+  m_Name: RhombusData
   m_EditorClassIdentifier: 
-  decay_freq: 30
+  hp: 100
+  speed: 2
   speed_decay: 0.9
+  speed_decay_freq: 20
+  speed_range: 2
+  speed_mul: 1.5
