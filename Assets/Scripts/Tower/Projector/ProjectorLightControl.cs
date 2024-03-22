@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefenderLightControl : MonoBehaviour
+public class ProjectorLightControl : MonoBehaviour
 {
-    GameObject entity, defender;
+    GameObject entity, projector;
     Renderer CurrentRenderer;
     Color CurrentLitColor, TargetLitColor;
     public LayerMask shaderLayer;
@@ -12,7 +12,7 @@ public class DefenderLightControl : MonoBehaviour
     void Start()
     {
         entity = transform.GetChild(0).gameObject;
-        defender = transform.parent.parent.gameObject;
+        projector = transform.parent.parent.gameObject;
     }
     void Update()
     {
@@ -68,7 +68,7 @@ public class DefenderLightControl : MonoBehaviour
     }
     public void ChangeSignLightColor(bool enabled)
     {
-        defender.GetComponent<DefenderControl>().SwitchChargingState(enabled ? 1 : -1);
+        projector.GetComponent<ProjectorControl>().SwitchChargingState(enabled ? 1 : -1);
         // Debug.Log(childId + "changing color to " + enabled);
         if (enabled)
         {

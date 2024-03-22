@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProjectorControl : TowerBase
 {
-    public ProjectorData projectorData;
+    public TowerData projectorData;
     public ShellData shellData;
     public float currentAngle;
     public GameObject battery, bulletFa, predoctionG;
@@ -110,12 +110,11 @@ public class ProjectorControl : TowerBase
     }
     int GetShellLevel()
     {
-        // if (chargingState <= 2)
-        //     return 0;
-        // if (chargingState <= 5)
-        //     return 1;
-        // return 2;
-        return 0;
+        if (chargingState <= 2)
+            return 0;
+        if (chargingState <= 4)
+            return 1;
+        return 2;
     }
     public void SwitchChargingState(int num)
     {

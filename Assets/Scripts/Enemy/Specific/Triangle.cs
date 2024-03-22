@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class Triangle : Enemy
 {
-    Triangle()
+    new void Start()
     {
+        base.Start();
         info.type = EnemyType.Triangle;
         info.hp = Constant.HpDic[info.type];
-        speed_rate= Constant.SpeedDic[info.type];
+        speed_rate = Constant.SpeedDic[info.type];
     }
     private void Update()
-    {   
+    {
         Step2Place();
     }
 }

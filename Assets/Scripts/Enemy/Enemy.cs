@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour, IEnemy
     public float speed_rate;
     public Rigidbody2D rb;
     public Vector2 target;
-    private void Start()
+    protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         target = new Vector2(0, 0);

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DefenderControl : TowerBase
 {
-    public DefenderData defenderData;
+    public TowerData defenderData;
     public LaserData laserData;
     public float currentAngle;
     public GameObject battery, bulletFa, predoctionG;

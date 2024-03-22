@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-[CreateAssetMenu(fileName = "DefenderData", menuName = "GameData/DefenderData", order = 0)]
+[CreateAssetMenu(fileName = "TowerData", menuName = "GameData/TowerData", order = 0)]
 
-public class DefenderData : ScriptableObject
+public class TowerData : ScriptableObject
 {
     public float rotarySpeed;
     public float firingRate;
