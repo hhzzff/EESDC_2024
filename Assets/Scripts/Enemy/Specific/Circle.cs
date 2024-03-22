@@ -11,14 +11,12 @@ public class Circle : Enemy
         info.type = EnemyType.Circle;
         info.hp = Constant.HpDic[info.type];
         speed = Constant.SpeedDic[info.type];
-    }
-    void OnDestroy()
-    {
-        EnemyManager.GetInstance().Hatch(rb.position, EnemyType.Dot);
+        damage = Constant.DamageDic[info.type];
+        score = Constant.ScoreDic[info.type];
+        energy = Constant.EnergyDic[info.type];
     }
     private void Update()
     {
         Step2Place();
-        TakeDamage(1);
     }
 }
