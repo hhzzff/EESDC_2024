@@ -11,6 +11,9 @@ public class Hexagon : Enemy
         info.type = EnemyType.Hexagon;
         info.hp = Constant.HpDic[info.type];
         speed = Constant.SpeedDic[info.type];
+        damage = Constant.DamageDic[info.type];
+        score = Constant.ScoreDic[info.type];
+        energy = Constant.EnergyDic[info.type];
     }
     private void Update()
     {

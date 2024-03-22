@@ -8,5 +8,7 @@ public class EnemyData : ScriptableObject
 {
     public int decay_freq;
     public float speed_decay;
+    public float rhombus_speed_range;
+    public float rhombus_speed_mul;
 }
 
