@@ -20,7 +20,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     int cnt = 0;
     void Start()
     {
-        base_control = GetComponent<BaseControl>();
+        base_control = BaseControl.GetInstance();
         rightUp = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0));
         leftDown = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0));
         right = rightUp.x;
@@ -96,8 +96,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
             {
                 SpeedUp(enemy.rb.position);
             }
-            Debug.Log("score"+enemy.score);
-            base_control.AddEnergy(enemy.energy);
+            //base_control.AddEnergy(enemy.energy);
             //base_control.AddScore(enemy.score);
             enemies.Remove(enemy);
             Destroy(enemy.gameObject);
