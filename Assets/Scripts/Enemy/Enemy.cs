@@ -6,15 +6,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IEnemy
 {
     public EnemyInfo info;
-    //ÒÆ¶¯ÓÐ¹Ø
+    //ï¿½Æ¶ï¿½ï¿½Ð¹ï¿½
     public Rigidbody2D rb;
     public Vector2 target;
     public int cnt;
     public float speed;
-    //ÉËº¦
+    //ï¿½Ëºï¿½
     public int damage;
     private BaseControl baseC;
-    //½±Àø
+    //ï¿½ï¿½ï¿½ï¿½
     public int score;
     public int energy;
     protected void Start()
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour, IEnemy
     public void Step2Place()
     {
         cnt--;
-        if(cnt==0)
+        if (cnt == 0)
         {
             speed *= Constant.speed_decay;
             cnt = Constant.decay_freq;
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour, IEnemy
         //}
         Vector2 r = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
         float norm = r.magnitude;
-        if (rb.position.magnitude>5f|norm<0.5f) 
+        if (rb.position.magnitude > 5f | norm < 0.5f)
         {
             SetTarget(new Vector2(0, 0));
         }

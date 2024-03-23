@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Projector
     originalName: 
-    pivot: {x: 0.5, y: -0.03773585}
+    pivot: {x: 0.5, y: -0.033898305}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,7 +129,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 60
-      height: 53
+      height: 59
     spriteID: 7f4f4837e2cb7ad49b8eae96933d3c19
     spriteBone: []
     spriteOutline: []
@@ -139,6 +139,106 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Projector_Frame_1
+    originalName: 
+    pivot: {x: 9, y: -14.333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 4
+      width: 3
+      height: 3
+    spriteID: 51f4d8ab205d2964fbaab9856ff35e60
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 4}
+  - name: Projector_Frame_2
+    originalName: 
+    pivot: {x: 9.5, y: -6.3333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 26
+      width: 2
+      height: 3
+    spriteID: 0686058ea17db3f4b83425228a6f7d81
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 26}
+  - name: Projector_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -2}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 83
+      y: 4
+      width: 4
+      height: 2
+    spriteID: 7906c5647f83594449239b478581432c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 83, y: 4}
+  - name: Projector_Frame_4
+    originalName: 
+    pivot: {x: -8.5, y: -6.3333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 37
+      width: 2
+      height: 3
+    spriteID: 7effddc772427dd40ad3e6a38d9e096c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 37}
+  - name: Projector_Frame_5
+    originalName: 
+    pivot: {x: -8, y: -14.333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 72
+      y: 15
+      width: 3
+      height: 3
+    spriteID: 0d386d032cfaffb46a7f817062753613
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 72, y: 15}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,14 +248,54 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Projector
+    - name: Projector_Frame_0
       frameIndex: 0
       cellRect:
         x: 2
         y: 2
         width: 60
-        height: 53
+        height: 59
       spriteId: 7f4f4837e2cb7ad49b8eae96933d3c19
+    - name: Projector_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 5
+        y: 43
+        width: 3
+        height: 3
+      spriteId: 51f4d8ab205d2964fbaab9856ff35e60
+    - name: Projector_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 13
+        y: 19
+        width: 2
+        height: 3
+      spriteId: 0686058ea17db3f4b83425228a6f7d81
+    - name: Projector_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 30
+        y: 4
+        width: 4
+        height: 2
+      spriteId: 7906c5647f83594449239b478581432c
+    - name: Projector_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 49
+        y: 19
+        width: 2
+        height: 3
+      spriteId: 7effddc772427dd40ad3e6a38d9e096c
+    - name: Projector_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 56
+        y: 43
+        width: 3
+        height: 3
+      spriteId: 0d386d032cfaffb46a7f817062753613
     linkedCells: []
     parentIndex: -1
   platformSettings: []
