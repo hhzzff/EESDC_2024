@@ -30,8 +30,8 @@ public class GamingUIControl : SingletonMono<GamingUIControl>
     }
     public void UpdateHealth()
     {
-        healthBar.value = BaseControl.GetInstance().GetHealth() / BaseControl.GetInstance().maxHealth;
-        healthText.text = BaseControl.GetInstance().GetHealth().ToString() + " / " + BaseControl.GetInstance().maxHealth.ToString();
+        healthBar.value = 1.0f * BaseControl.GetInstance().GetHealth() / BaseControl.GetInstance().maxHealth;
+        healthText.text = BaseControl.GetInstance().GetHealth().ToString();
     }
     public void UpdateEnergy()
     {
