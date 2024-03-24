@@ -9,6 +9,9 @@ MonoImporter:
   - dot: {fileID: -8298398807519288496, guid: 7f2c04141d7e20b4c8ecefd13cbc782f, type: 3}
   - square: {fileID: 5318219821018363562, guid: 644c032805d58ca4fb219268087ddc8f, type: 3}
   - rhombus: {fileID: 7076997798758751376, guid: 2f79ce773271c744083783f7f1f34528, type: 3}
+  - star: {fileID: 133828417732283856, guid: 6598990b9f115df429d382f7cb7514cd, type: 3}
+  - pentagon: {fileID: 5438557954688531135, guid: 2aac8e39a936e0e41af8349e65518790, type: 3}
+  - hexagon: {fileID: 2038760127723031716, guid: fbd05b29036ae4e47989d728df3f5bc2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

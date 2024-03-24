@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6457344770004498275}
-  - component: {fileID: 4571907390530891832}
   - component: {fileID: 5186218165574820162}
+  - component: {fileID: -3488131106979381075}
   m_Layer: 0
   m_Name: EnemyDependency
   m_TagString: Untagged
@@ -33,23 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4571907390530891832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8298609022269645432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 782bc383ecb71534e8b5dfde987d432e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triangle: {fileID: -360309384283484548, guid: 33201314a0ccb7048aac273cea76ada9, type: 3}
-  circle: {fileID: 6738617838702667842, guid: 32bd6cd3bf4d2e34a8a56453fd117a37, type: 3}
-  dot: {fileID: -8298398807519288496, guid: 7f2c04141d7e20b4c8ecefd13cbc782f, type: 3}
-  square: {fileID: 5318219821018363562, guid: 644c032805d58ca4fb219268087ddc8f, type: 3}
-  rhombus: {fileID: 7076997798758751376, guid: 2f79ce773271c744083783f7f1f34528, type: 3}
 --- !u!114 &5186218165574820162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,3 +54,23 @@ MonoBehaviour:
   pentagonData: {fileID: 11400000, guid: 6142436b25ad999429d6fe0eaa45c958, type: 2}
   starData: {fileID: 11400000, guid: 782e151ccc5867348a1f69b0c87b9eb6, type: 2}
   enemyData: {fileID: 11400000, guid: d104f82e84e1dc84581b43a2fd37fdc3, type: 2}
+--- !u!114 &-3488131106979381075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298609022269645432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 782bc383ecb71534e8b5dfde987d432e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triangle: {fileID: -360309384283484548, guid: 33201314a0ccb7048aac273cea76ada9, type: 3}
+  circle: {fileID: 6738617838702667842, guid: 32bd6cd3bf4d2e34a8a56453fd117a37, type: 3}
+  dot: {fileID: -8298398807519288496, guid: 7f2c04141d7e20b4c8ecefd13cbc782f, type: 3}
+  square: {fileID: 5318219821018363562, guid: 644c032805d58ca4fb219268087ddc8f, type: 3}
+  rhombus: {fileID: 7076997798758751376, guid: 2f79ce773271c744083783f7f1f34528, type: 3}
+  star: {fileID: 133828417732283856, guid: 6598990b9f115df429d382f7cb7514cd, type: 3}
+  pentagon: {fileID: 5438557954688531135, guid: 2aac8e39a936e0e41af8349e65518790, type: 3}
+  hexagon: {fileID: 2038760127723031716, guid: fbd05b29036ae4e47989d728df3f5bc2, type: 3}
