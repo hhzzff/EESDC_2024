@@ -1,14 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
 
-public class Hexagon : Enemy
+public class Star : Enemy
 {
     new void Start()
     {
         base.Start();
-        info.type = EnemyType.Hexagon;
+        info.type = EnemyType.Star;
         info.hp = Constant.HpDic[info.type];
         speed = Constant.SpeedDic[info.type];
         damage = Constant.DamageDic[info.type];
