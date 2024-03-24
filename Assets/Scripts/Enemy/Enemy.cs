@@ -19,8 +19,8 @@ public class Enemy : MonoBehaviour, IEnemy
     public int energy;
     protected void Start()
     {
-        rb=GetComponent<Rigidbody2D>();
-        baseC=BaseControl.GetInstance();
+        rb = GetComponent<Rigidbody2D>();
+        baseC = BaseControl.GetInstance();
         cnt = Constant.decay_freq;
     }
     public void Step2Place()
@@ -46,8 +46,8 @@ public class Enemy : MonoBehaviour, IEnemy
         //TODO
         //if (speed < 0.2)
         //    speed = 0.2f;
-        rb.AddForce(r/ norm * speed);
-        rb.AddTorque(norm/ speed);
+        rb.AddForce(r / norm * speed);
+        rb.AddTorque(norm / speed);
     }
     public void SetTarget(Vector2 place)
     {
@@ -55,6 +55,8 @@ public class Enemy : MonoBehaviour, IEnemy
     }
     public void UpdateInfo()
     {
+        if (!rb)
+            rb = GetComponent<Rigidbody2D>();
         info.vel = rb.velocity;
         info.pos = rb.position;
     }
@@ -78,7 +80,7 @@ public class Enemy : MonoBehaviour, IEnemy
         if (other.CompareTag("Base"))
         {
             speed *= 0f;
-            rb.velocity *= 0f; 
+            rb.velocity *= 0f;
         }
     }
 }

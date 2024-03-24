@@ -5,6 +5,11 @@ using UnityEngine;
 public class TowerBase : MonoBehaviour
 {
     public int health;
+    public TowerData towerData;
+    void Start()
+    {
+        health = towerData.health;
+    }
     void DamageTower(int damage)
     {
         health -= damage;
