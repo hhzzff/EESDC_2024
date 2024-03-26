@@ -7,6 +7,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, IEnemy
 {
     public Rigidbody2D rb;
+    public Animator ani;
     public EnemyInfo info;
 
     public Vector2 target;
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour, IEnemy
         baseC =BaseControl.GetInstance();
         decay_cnt = Constant.decay_cnt;
         damage_cnt=Constant.damage_cnt;
+        ani = GetComponent<Animator>();
     }
     public void Step2Place()
     {
@@ -72,9 +74,8 @@ public class Enemy : MonoBehaviour, IEnemy
     }
     public void TakeDamage(int damage)
     {
-        //FlashWhite();
+        ani.SetTrigger("Injured");
         info.hp -= damage;
-        //Debug.Log(info.hp);
     }
     public void Pushed(Vector2 direction, float val)
     {
