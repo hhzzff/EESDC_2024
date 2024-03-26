@@ -66,4 +66,8 @@ public class GamingUIControl : SingletonMono<GamingUIControl>
     {
         PlayerControl.GetInstance().holdingProjector = true;
     }
+    public void ParcloseButtonDown()
+    {
+        PlayerControl.GetInstance().holdingParclose = true;
+    }
 }
