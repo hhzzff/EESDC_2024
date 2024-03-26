@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ParcloseLightControl : MonoBehaviour
 {
-    GameObject entity, parclose;
+    GameObject entity;
+    ParcloseControl parclose;
     Renderer CurrentRenderer;
     Color CurrentLitColor, TargetLitColor;
     public LayerMask shaderLayer;
@@ -12,7 +13,7 @@ public class ParcloseLightControl : MonoBehaviour
     void Start()
     {
         entity = transform.GetChild(0).gameObject;
-        parclose = transform.parent.parent.gameObject;
+        parclose = transform.parent.parent.GetComponent<ParcloseControl>();
     }
     void Update()
     {
@@ -68,7 +69,7 @@ public class ParcloseLightControl : MonoBehaviour
     }
     public void ChangeSignLightColor(bool enabled)
     {
-        parclose.GetComponent<ParcloseControl>().SwitchChargingState(enabled ? 1 : -1);
+        parclose.SwitchChargingState(enabled ? 1 : -1);
         // Debug.Log(childId + "changing color to " + enabled);
         if (enabled)
         {
