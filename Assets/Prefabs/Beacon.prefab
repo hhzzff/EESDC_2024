@@ -162,7 +162,7 @@ MonoBehaviour:
   - {x: 0.21497606, y: 0.14017361, z: 0}
   m_ShapePathHash: -923138628
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34838
+  m_InstanceId: 31186
   m_LocalBounds:
     m_Center: {x: 0.0009900928, y: 0.0011378229, z: 0}
     m_Extent: {x: 0.25529408, y: 0.25528216, z: 0}
@@ -382,6 +382,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43456c42ba1bcb74593feb56dd56b797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  towerData: {fileID: 11400000, guid: 9847b159baf4d354e9ad4125fd035e97, type: 2}
   chargingState: 0
   lightSource: {fileID: 0}
   lightEnabled: 1

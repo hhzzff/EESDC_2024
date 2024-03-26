@@ -8,4 +8,5 @@ public class TowerData : ScriptableObject
 {
     public float rotarySpeed;
     public float firingRate;
+    public int health;
 }

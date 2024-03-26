@@ -23,11 +23,11 @@ public class Enemy : MonoBehaviour, IEnemy
     public bool attackMode = false;
     protected void Start()
     {
-        rb=GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         rb.angularVelocity = 128;
-        baseC =BaseControl.GetInstance();
+        baseC = BaseControl.GetInstance();
         decay_cnt = Constant.decay_cnt;
-        damage_cnt=Constant.damage_cnt;
+        damage_cnt = Constant.damage_cnt;
     }
     public void Step2Place()
     {
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour, IEnemy
         else
         {
             damage_cnt--;
-            if(damage_cnt==0)
+            if (damage_cnt == 0)
             {
                 Attack();
                 damage_cnt = Constant.damage_cnt;
@@ -63,9 +63,9 @@ public class Enemy : MonoBehaviour, IEnemy
     }
     public void UpdateInfo()
     {
-        if(!rb)
+        if (!rb)
         {
-            rb=GetComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody2D>();
         }
         info.vel = rb.velocity;
         info.pos = rb.position;
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour, IEnemy
         {
             attackMode = true;
             speed *= 0f;
-            rb.velocity *= 0f; 
+            rb.velocity *= 0f;
         }
     }
 }
