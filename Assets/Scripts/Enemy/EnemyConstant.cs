@@ -35,7 +35,9 @@ public class Constant : SingletonMono<Constant>
     public static Dictionary<EnemyType, int> DamageDic;
     public static Dictionary<EnemyType, int> ScoreDic;
     public static Dictionary<EnemyType, int> EnergyDic;
-    public static int decay_freq;
+    public static int decay_cnt;
+    public static int damage_cnt;
+    public static int pentagon_call_cnt;
     public static float speed_decay;
     public static float speed_range;
     public static float speed_mul;
@@ -99,7 +101,9 @@ public class Constant : SingletonMono<Constant>
         };
 
         speed_decay = enemyData.speed_decay;
-        decay_freq = enemyData.decay_freq;
+        decay_cnt = enemyData.decay_cnt;
+        damage_cnt = enemyData.damage_cnt;
+        pentagon_call_cnt = enemyData.pentagon_call_cnt;
         speed_range = enemyData.rhombus_speed_range;
         speed_mul = enemyData.rhombus_speed_mul;
     }

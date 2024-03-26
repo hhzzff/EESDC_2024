@@ -9,6 +9,10 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     public Dot dot;
     public Square square;
     public Rhombus rhombus;
+    public Star star;
+    public Pentagon pentagon;
+    public Hexagon hexagon;
+
     private BaseControl base_control;
     List<Enemy> enemies = new List<Enemy>();
     Vector3 rightUp;
@@ -17,7 +21,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     float left;
     float up;
     float down;
-    int cnt = 0;
+    int generate_cnt = 0;
     void Start()
     {
         base_control = BaseControl.GetInstance();
@@ -33,10 +37,10 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
     void Update()
     {
         CheckHp();
-        if (cnt-- == 0)
+        if (generate_cnt-- == 0)
         {
             GenerateEnemy();
-            cnt = 100;
+            generate_cnt = 100;
         }
 
     }
@@ -57,7 +61,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
                     y = Random.Range(up, up + 5);
             }
             // should be random
-            int randomValue = Random.Range(0, 5); // ����0��3֮����������
+            int randomValue = Random.Range(0, 8); // ����0��3֮����������
             Enemy newEnemy;
             switch (randomValue)
             {
@@ -75,6 +79,15 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
                     break;
                 case 4:
                     newEnemy = Instantiate(rhombus, new Vector3(x, y, 0), Quaternion.identity);
+                    break;
+                case 5:
+                    newEnemy = Instantiate(pentagon, new Vector3(x, y, 0), Quaternion.identity);
+                    break;
+                case 6:
+                    newEnemy = Instantiate(hexagon, new Vector3(x, y, 0), Quaternion.identity);
+                    break;
+                case 7:
+                    newEnemy = Instantiate(star, new Vector3(x, y, 0), Quaternion.identity);
                     break;
                 default:
                     newEnemy = null;
@@ -96,8 +109,8 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
             {
                 SpeedUp(enemy.rb.position);
             }
-            //base_control.AddEnergy(enemy.energy);
-            //base_control.AddScore(enemy.score);
+            base_control.AddEnergy(enemy.energy);
+            base_control.AddScore(enemy.score);
             enemies.Remove(enemy);
             Destroy(enemy.gameObject);
             
@@ -111,6 +124,12 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
             if (enemy.info.hp <= 0)
             {
                 RemoveEnemy(enemy);
+            }
+            else if (enemy.info.type == EnemyType.Hexagon && enemy.info.hp <= Constant.HpDic[EnemyType.Hexagon]/2 && enemy.givenBirth==false)
+            {
+                enemy.givenBirth = true;
+                Hatch(enemy.rb.position, EnemyType.Rhombus);
+                Hatch(enemy.rb.position, EnemyType.Rhombus);
             }
         }
     }
@@ -130,7 +149,7 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         {
             if ((enemy.rb.position-pos).magnitude<Constant.speed_range)
             {
-                enemy.speed*=Constant.speed_mul;
+                enemy.rb.velocity *= Constant.speed_mul;
             }
         }
     }
@@ -139,7 +158,14 @@ public class EnemyManager : SingletonMono<EnemyManager>, IEnemyManager
         if (type == EnemyType.Dot)
         {
             Dot newEnemy = Instantiate(dot, new Vector3(pos.x, pos.y, 0), Quaternion.identity).GetComponent<Dot>();
-            Vector2 target = new Vector2(Random.Range(pos.x-1f,pos.x+1f),Random.Range(pos.y-1,pos.y+1));
+            Vector2 target = new Vector2(Random.Range(pos.x-2f,pos.x+2f),Random.Range(pos.y-2f,pos.y+2f));
+            newEnemy.SetTarget(target);
+            enemies.Add(newEnemy);
+        }
+        else if(type==EnemyType.Rhombus)
+        {
+            Rhombus newEnemy = Instantiate(rhombus, new Vector3(pos.x, pos.y, 0), Quaternion.identity).GetComponent<Rhombus>();
+            Vector2 target = new Vector2(Random.Range(pos.x - 2f, pos.x + 2f), Random.Range(pos.y - 2f, pos.y + 2f));
             newEnemy.SetTarget(target);
             enemies.Add(newEnemy);
         }
