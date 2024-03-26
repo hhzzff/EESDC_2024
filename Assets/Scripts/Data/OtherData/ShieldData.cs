@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ShieldData : ScriptableObject
 {
-    public int[] chargeSpeed;
+    public float[] chargeSpeed;
     public float radius;
     public int durability;
+    public float formTime;
 }

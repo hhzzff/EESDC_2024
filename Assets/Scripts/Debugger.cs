@@ -14,10 +14,10 @@ public class Debugger : SingletonMono<Debugger>
     // Update is called once per frame
     void Update()
     {
-        if (cnt-- <= 0)
-        {
-            cnt = 30;
-            BaseControl.GetInstance().DamageBase(1);
-        }
+        // if (cnt-- <= 0)
+        // {
+        //     cnt = 30;
+        //     BaseControl.GetInstance().DamageBase(1);
+        // }
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ProjectorData
   m_EditorClassIdentifier: 
   rotarySpeed: 300
-  firingRate: 0.3
+  firingRate: 0.7
   health: 100
