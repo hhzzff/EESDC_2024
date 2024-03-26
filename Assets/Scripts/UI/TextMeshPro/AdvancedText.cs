@@ -28,6 +28,10 @@ public class AdvancedTextPreprocessor : ITextPreprocessor
                 IntervalDictionary[match.Index-1] = result;
             }
             processingText=processingText.Remove(match.Index,match.Length);
+            if(Regex.IsMatch(label,"^sprite=.+"))
+            {
+                processingText=processingText.Insert(match.Index,"*");
+            }
             match = Regex.Match(processingText,pattern);
         }
         processingText=text;
