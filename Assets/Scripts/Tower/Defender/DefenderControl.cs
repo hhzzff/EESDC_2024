@@ -45,7 +45,7 @@ public class DefenderControl : TowerBase
                 return 1;
             return 0;
         });
-        //Debug.Log("sort finished");
+        Debug.Log("sort finished , firstenemyPos: " + ((enemyList.Count > 0) ? enemyList[0].pos.ToString() : "null"));
         foreach (EnemyInfo enemy in enemyList)
         {
             if (enemy.hp > 0)
