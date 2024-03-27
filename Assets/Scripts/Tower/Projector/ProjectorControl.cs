@@ -64,6 +64,8 @@ public class ProjectorControl : TowerBase
     }
     float SolvePredictTime(float r, float cosA, float velRate2, float ven)
     {
+        if (ven == 0)
+            return 0;
         return (-r * cosA + r * Mathf.Sqrt(cosA * cosA + velRate2 - 1)) / ((velRate2 - 1) * ven);
     }
     void RotateBatteryTo(float angle, Vector2 dis)

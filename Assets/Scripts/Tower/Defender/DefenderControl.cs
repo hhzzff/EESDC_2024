@@ -45,7 +45,8 @@ public class DefenderControl : TowerBase
                 return 1;
             return 0;
         });
-        Debug.Log("sort finished , firstenemyPos: " + ((enemyList.Count > 0) ? enemyList[0].pos.ToString() : "null"));
+        Debug.Log("sort finished , firstenemyPos: " + ((enemyList.Count > 0) ? enemyList[0].pos.ToString() : "null") + "  vel:" +
+        ((enemyList.Count > 0) ? enemyList[0].vel.ToString() : "null"));
         foreach (EnemyInfo enemy in enemyList)
         {
             if (enemy.hp > 0)
@@ -68,6 +69,8 @@ public class DefenderControl : TowerBase
     }
     float SolvePredictTime(float r, float cosA, float velRate2, float ven)
     {
+        if (ven == 0)
+            return 0;
         return (-r * cosA + r * Mathf.Sqrt(cosA * cosA + velRate2 - 1)) / ((velRate2 - 1) * ven);
     }
     void RotateBatteryTo(float angle)
