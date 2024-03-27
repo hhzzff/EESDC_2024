@@ -24,8 +24,11 @@ public class ShellControl : MonoBehaviour
         lifeTime += Time.deltaTime;
         if (lifeTime > lifeTimeMax)
         {
-            Explode();
-            StartCoroutine(DelayDestroy());
+            if (shockWave && !shockWave.activeInHierarchy)
+            {
+                Explode();
+                StartCoroutine(DelayDestroy());
+            }
         }
     }
     void Explode()
@@ -33,10 +36,11 @@ public class ShellControl : MonoBehaviour
         rbShell.velocity = Vector3.zero;
         animator.SetTrigger("Disappear");
         shockWave.SetActive(true);
+        shockWave.GetComponent<ShockWaveControl>().Explode();
     }
     IEnumerator DelayDestroy()
     {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -45,7 +45,7 @@ public class GamingUIControl : SingletonMono<GamingUIControl>
         while (timer <= animationTime)
         {
             animGameObject.transform.localScale = animationCurve.Evaluate(timer / animationTime) * BasicScale;
-            Debug.Log("time:" + timer + "  value:" + animationCurve.Evaluate(timer / animationTime) * BasicScale);
+            // Debug.Log("time:" + timer + "  value:" + animationCurve.Evaluate(timer / animationTime) * BasicScale);
             timer += Time.deltaTime;
             yield return 0;
         }
