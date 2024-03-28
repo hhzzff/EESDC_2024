@@ -7,7 +7,7 @@ public class ShellControl : MonoBehaviour
     public ShellData shellData;
     Animator animator;
     public int level;
-    public float lifeTimeMax;
+    public float lifeTimeMax, destroyTimeMax;
     private float lifeTime = 0;
     public GameObject shell, shockWave;
     public Rigidbody2D rbShell;
@@ -30,6 +30,8 @@ public class ShellControl : MonoBehaviour
                 StartCoroutine(DelayDestroy());
             }
         }
+        if (lifeTime > destroyTimeMax)
+            Destroy(gameObject);
     }
     void Explode()
     {

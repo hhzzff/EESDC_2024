@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ProjectorControl : TowerBase
 {
-    public TowerData projectorData;
     public ShellData shellData;
     public float currentAngle;
     public GameObject battery, bulletFa, predoctionG;
@@ -75,9 +74,9 @@ public class ProjectorControl : TowerBase
         while (currentAngle - angle > 180)
             angle += 360;
         // Debug.Log("current " + currentAngle.ToString() + " rotate to " + angle);
-        if (Mathf.Abs(angle - currentAngle) <= Time.deltaTime * projectorData.rotarySpeed)
+        if (Mathf.Abs(angle - currentAngle) <= Time.deltaTime * ParaDefine.GetInstance().projectorData.rotarySpeed)
         {
-            if (Mathf.Abs(angle - currentAngle) <= Time.deltaTime * projectorData.rotarySpeed)
+            if (Mathf.Abs(angle - currentAngle) <= Time.deltaTime * ParaDefine.GetInstance().projectorData.rotarySpeed)
             {
                 currentAngle = angle;
             }
@@ -88,9 +87,9 @@ public class ProjectorControl : TowerBase
         }
         currentState = State.Aiming;
         if (angle > currentAngle)
-            currentAngle = (currentAngle + Time.deltaTime * projectorData.rotarySpeed) % 360;
+            currentAngle = (currentAngle + Time.deltaTime * ParaDefine.GetInstance().projectorData.rotarySpeed) % 360;
         if (angle < currentAngle)
-            currentAngle = (currentAngle - Time.deltaTime * projectorData.rotarySpeed) % 360;
+            currentAngle = (currentAngle - Time.deltaTime * ParaDefine.GetInstance().projectorData.rotarySpeed) % 360;
         battery.transform.rotation = Quaternion.AngleAxis(currentAngle - 90, Vector3.forward);
     }
     void TryAttack(Vector2 dis)
@@ -107,7 +106,7 @@ public class ProjectorControl : TowerBase
             Vector2.right * Mathf.Cos(currentAngle * Mathf.Deg2Rad) + Vector2.up * Mathf.Sin(currentAngle * Mathf.Deg2Rad));
         bullet.GetComponent<ShellControl>().lifeTimeMax = dis.magnitude / shellData.speed[GetShellLevel()];
         inAttackCD = true;
-        yield return new WaitForSeconds(projectorData.firingRate);
+        yield return new WaitForSeconds(ParaDefine.GetInstance().projectorData.firingRate);
         inAttackCD = false;
     }
     int GetShellLevel()
